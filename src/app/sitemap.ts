@@ -1,33 +1,27 @@
 // src/app/sitemap.ts
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { servicesFancy } from "@/data/services"; // optional: remove if you don’t want service URLs
+
+const base = "https://molalesecurity.com"; // set your prod domain
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Your website's base URL
-  const base = "https://molalesecurity.com";
+  const now = new Date();
 
-  // An array of all your site's paths
-  const paths = [
-    "", // This represents the homepage
-    "services",
-    "services/armed-response",
-    "services/physical-guarding",
-    "services/vip-protection",
-    "services/cctv-alarms",
-    "services/screening",
-    "services/private-investigations",
-    "services/training",
-    "locations/orkney",
-    "locations/klerksdorp",
-    "locations/north-west",
-    "contact",
+  const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${base}/`,              lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${base}/about`,         lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/services`,      lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${base}/contact`,       lastModified: now, changeFrequency: "yearly",  priority: 0.6 },
+    { url: `${base}/training`,      lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
   ];
 
-  // Map the paths to the required sitemap format
-  return paths.map((p) => ({
-    url: `${base}/${p}`,
-    lastModified: new Date(),
-    // You can also add these optional fields if you want
-    // changeFrequency: 'monthly',
-    // priority: 0.8,
+  // Optional: include detail pages for each service
+  const serviceRoutes: MetadataRoute.Sitemap = servicesFancy.map((s) => ({
+    url: `${base}/services/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
+
+  return [...staticRoutes, ...serviceRoutes];
 }
