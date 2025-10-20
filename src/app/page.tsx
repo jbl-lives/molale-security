@@ -1,7 +1,4 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import styles from "./page.module.css";
-import Header from "./layouts/Header";
+// src/app/page.tsx
 import Hero from "./components/Hero";
 import ServicesGridFancy from "./components/sections/ServicesGridFancy";
 import WhyChooseUs from "./components/sections/WhyChooseUs";
@@ -11,13 +8,13 @@ import PrimaryCta from "./components/sections/PrimaryCta";
 
 export default function Home() {
   return (
-    <main className="min-h-dvh ">
-      <Hero />  
+    <main className="min-h-dvh">
+      <Hero />
       <ServicesGridFancy />
       <WhyChooseUs />
       <Coverage />
       <Testimonials />
-      <PrimaryCta /> 
+      <PrimaryCta />
     </main>
   );
 }
