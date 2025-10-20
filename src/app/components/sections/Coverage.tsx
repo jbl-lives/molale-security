@@ -1,5 +1,13 @@
-import CoverageMap from "../map/CoverageMap";
+"use client"; // <--- Add this line
+
 import { coverageAreas } from "@/data/coverage";
+import dynamic from "next/dynamic";
+
+// Dynamically import CoverageMap and explicitly disable SSR
+const CoverageMap = dynamic(
+  () => import("../map/CoverageMap"),
+  { ssr: false } // This is now allowed because this file is a Client Component
+);
 
 export default function Coverage() {
   return (
@@ -22,17 +30,16 @@ export default function Coverage() {
         </p>
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {/* Map: already styled with rounded + shadow inside the component */}
+          {/* This <CoverageMap /> component will now only be loaded in the browser */}
           <CoverageMap />
 
-          {/* List card: no border, soft shadow + subtle gradient for readability on the image */}
+          {/* List card */}
           <div className="rounded-xl bg-gradient-to-br from-white to-gray-50 p-6 shadow-[0_4px_16px_rgb(0_0_0_/_0.10)]">
             <h3 className="text-lg font-semibold text-gray-900">Estimated Response Times</h3>
             <p className="mt-1 text-xs text-gray-600">
               Indicative windows based on typical traffic & availability.
             </p>
 
-            {/* fainter separators */}
             <div className="mt-4 divide-y divide-gray-200/50">
               {coverageAreas.map((a) => (
                 <div key={a.name} className="flex items-center justify-between py-3">

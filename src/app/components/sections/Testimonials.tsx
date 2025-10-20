@@ -2,6 +2,8 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
+import Image from "next/image";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -10,7 +12,7 @@ type Testimonial = {
   quote: string;
   name: string;
   role: string;
-  avatar?: string | null; // optional now
+  avatar?: string | null; // optional
 };
 
 const TESTIMONIALS: Testimonial[] = [
@@ -25,7 +27,7 @@ const TESTIMONIALS: Testimonial[] = [
     quote: "Reliable, discreet, and well-trained. We’ve used them for events and ongoing guarding.",
     name: "Robert Fox",
     role: "Founder at Brain.co",
-    avatar: null, // ← no image → will render initials
+    avatar: null, // → initials
   },
   {
     quote:
@@ -46,7 +48,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Great partner for multi-site security. Clear SLAs and helpful incident summaries.",
     name: "Anika P.",
     role: "Operations at Warehousing SA",
-    avatar: undefined, // initials
+    avatar: undefined, // → initials
   },
 ];
 
@@ -54,7 +56,7 @@ const TESTIMONIALS: Testimonial[] = [
 function getInitials(name: string) {
   const parts = name.trim().split(/\s+/);
   const letters = (parts[0]?.[0] ?? "") + (parts[1]?.[0] ?? "");
-  return letters.toUpperCase() || "U"; // default U for Unknown
+  return (letters || "U").toUpperCase();
 }
 function hashHue(str: string) {
   let h = 0;
@@ -62,9 +64,7 @@ function hashHue(str: string) {
   return h % 360;
 }
 function bgForName(name: string) {
-  const hue = hashHue(name);
-  // pleasant palette; tweak S/L to taste
-  return `hsl(${hue} 70% 45%)`;
+  return `hsl(${hashHue(name)} 70% 45%)`;
 }
 
 export default function Testimonials() {
@@ -74,7 +74,7 @@ export default function Testimonials() {
         <header className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What Clients Say</h2>
           <p className="mt-2 text-gray-600">
-            Trusted by homeowners and businesses across Klerksdorp & beyond.
+            Trusted by homeowners and businesses across Klerksdorp &amp; beyond.
           </p>
         </header>
 
@@ -86,7 +86,10 @@ export default function Testimonials() {
             navigation
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
-            breakpoints={{ 768: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 24 } }}
+            breakpoints={{
+              768: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 3, spaceBetween: 24 },
+            }}
             aria-label="Customer testimonials"
           >
             {TESTIMONIALS.map((t) => (
@@ -95,7 +98,14 @@ export default function Testimonials() {
                   {/* avatar / initials */}
                   <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full">
                     {t.avatar ? (
-                      <img src={t.avatar} alt={t.name} className="h-full w-full object-cover" loading="lazy" />
+                      <Image
+                        src={t.avatar}
+                        alt={t.name}
+                        fill
+                        sizes="80px"
+                        className="object-cover"
+                        priority={false}
+                      />
                     ) : (
                       <div
                         className="grid h-full w-full place-items-center text-white text-xl font-semibold"
@@ -112,7 +122,9 @@ export default function Testimonials() {
                     </span>
                   </div>
 
-                  <blockquote className="mt-6 text-center text-gray-700 leading-relaxed">“{t.quote}”</blockquote>
+                  <blockquote className="mt-6 text-center text-gray-700 leading-relaxed">
+                    “{t.quote}”
+                  </blockquote>
 
                   <figcaption className="mt-6 text-center">
                     <div className="font-semibold text-gray-900">{t.name}</div>
