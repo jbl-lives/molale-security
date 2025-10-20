@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -13,18 +13,21 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
 
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
-  { href: "/training", label: ""}
+  // 👇 remove training from NAV; it’s a separate CTA button
+  // { href: "/training", label: "" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname.startsWith(href));
+  const isTraining = pathname.startsWith("/training");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b">
@@ -32,7 +35,7 @@ export default function Header() {
         {/* Brand */}
         <div className="flex items-center gap-3">
           <Image
-            src="/assets/images/logo.png"   // or import logo from "@/assets/images/logo.png"
+            src="/assets/images/logo.png"
             alt="Molale Security Logo"
             width={48}
             height={48}
@@ -45,18 +48,17 @@ export default function Header() {
         <nav aria-label="Primary" className="hidden md:flex items-center gap-6">
           <ul className="flex items-center gap-6 text-gray-700">
             {NAV.map((item) => {
-              const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+              const active = isActive(item.href);
               return (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={[
-                      "relative inline-flex items-center transition-colors",
-                      "hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/30 rounded-sm px-1 py-0.5",
+                      "relative inline-flex items-center transition-colors rounded-sm px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/30",
                       active
                         ? "text-[var(--color-primary)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-[var(--color-primary)]"
-                        : "text-gray-700",
+                        : "text-gray-700 hover:text-[var(--color-primary)]",
                     ].join(" ")}
                   >
                     {item.label}
@@ -66,9 +68,15 @@ export default function Header() {
             })}
           </ul>
 
+          {/* Training CTA — turns yellow when on /training */}
           <Button
             asChild
-            className="ml-2 rounded-none bg-gray-600 text-white hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-gray-400/60"
+            className={[
+              "ml-2 rounded-none focus-visible:ring-2 focus-visible:ring-gray-400/60",
+              isTraining
+                ? "bg-yellow-500 hover:bg-yellow-600 text-gray-900"
+                : "bg-gray-600 hover:bg-gray-700 text-white",
+            ].join(" ")}
           >
             <Link href="/training" className="inline-flex items-center gap-2">
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
@@ -77,7 +85,7 @@ export default function Header() {
           </Button>
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -93,7 +101,7 @@ export default function Header() {
 
               <div className="mt-6 flex flex-col gap-2">
                 {NAV.map((item) => {
-                  const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                  const active = isActive(item.href);
                   return (
                     <SheetClose asChild key={item.href}>
                       <Link
@@ -110,11 +118,28 @@ export default function Header() {
                   );
                 })}
 
+                {/* Training CTA in mobile menu — also turns yellow when active */}
                 <SheetClose asChild>
-                  <Button asChild className="mt-2">
-                    <Link href="/contact" className="text-white">
-                      Get a Quote
+                  <Button
+                    asChild
+                    className={[
+                      "mt-3 w-full rounded-md",
+                      isTraining
+                        ? "bg-yellow-500 hover:bg-yellow-600 text-gray-900"
+                        : "bg-gray-600 hover:bg-gray-700 text-white",
+                    ].join(" ")}
+                  >
+                    <Link href="/training" className="inline-flex items-center justify-center gap-2">
+                      <GraduationCap className="h-4 w-4" />
+                      <span>Training Academy</span>
                     </Link>
+                  </Button>
+                </SheetClose>
+
+                {/* Optional secondary CTA */}
+                <SheetClose asChild>
+                  <Button asChild variant="secondary" className="mt-2">
+                    <Link href="/contact">Get a Quote</Link>
                   </Button>
                 </SheetClose>
               </div>

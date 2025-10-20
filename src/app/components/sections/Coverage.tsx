@@ -37,7 +37,7 @@ export default function Coverage() {
               {coverageAreas.map((a) => (
                 <div key={a.name} className="flex items-center justify-between py-3">
                   <span className="font-medium text-gray-800">{a.name}</span>
-                  <span className="text-gray-600">{a.response}</span>
+                  <span className="text-gray-600">{a.eta}</span>
                 </div>
               ))}
             </div>

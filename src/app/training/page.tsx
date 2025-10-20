@@ -6,6 +6,7 @@ import ProcessStrip from "./ProcessStrip";
 import ApplyDialog from "./ApplyDialog";
 import ApplyDialogProvider from "./ApplyDialogProvider";
 import TrainingDeepLinkBridge from "./TrainingDeepLinkBridge";
+import PsiraNextSteps from "./PsiraNextSteps";
 
 export const metadata: Metadata = {
   title: "Training Academy",
@@ -24,6 +25,7 @@ export default function TrainingPage() {
         <ProvideAndCompliance />
         <Courses />
         <ProcessStrip />
+        <PsiraNextSteps />
       </main>
     </ApplyDialogProvider>
   );

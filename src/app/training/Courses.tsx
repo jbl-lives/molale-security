@@ -20,7 +20,7 @@ export default function Courses() {
           >
             <div className="relative h-48">
               <Image
-                src={c.img ?? "/assets/images/training.jpg"}
+                src={c.img ?? "/assets/images/training2.jpg"}
                 alt={c.title}
                 fill
                 className="object-cover"

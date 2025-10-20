@@ -1,20 +1,26 @@
-// src/app/ClientLayout.tsx
+// src/app/layouts/ClientLayout.tsx (or src/app/ClientLayout.tsx if you moved it back)
 "use client";
 
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useState, useEffect } from "react"; // <-- Import useState and useEffect
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
+  const pathname = usePathname(); // <-- This line is the only hook in the render path
 
-  const prefersReduced = useMemo(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }, []);
+  // Use state to manage the prefersReduced status
+  const [prefersReduced, setPreFersReduced] = useState(false); 
+
+  useEffect(() => {
+    // This logic runs ONLY on the client after mounting
+    if (typeof window !== "undefined" && window.matchMedia) {
+      setPreFersReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    }
+  }, []); // Run only once on mount
 
   const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+  // The rest of your logic remains the same, using the 'prefersReduced' state
   const variants: Variants = prefersReduced
     ? {
         initial: { opacity: 0 },
@@ -29,6 +35,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
 
   return (
     <AnimatePresence mode="wait">
+      {/* pathname remains the key */}
       <motion.div key={pathname} initial="initial" animate="animate" exit="exit" variants={variants}>
         {children}
       </motion.div>

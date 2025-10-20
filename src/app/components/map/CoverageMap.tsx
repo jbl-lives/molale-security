@@ -53,7 +53,7 @@ export default function CoverageMap() {
             <Popup>
               <div className="text-sm">
                 <div className="font-semibold">{a.name}</div>
-                <div className="text-gray-600">Response: {a.response}</div>
+                <div className="text-gray-600">Response: {a.eta}</div>
               </div>
             </Popup>
           </CircleMarker>
