@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 type Props = { name: string; src?: string | null; size?: number };
 
@@ -21,7 +22,7 @@ export default function AvatarFallback({ name, src, size = 80 }: Props) {
   const dim = `${size}px`;
   if (src) {
     return (
-      <img
+      <Image
         src={src}
         alt={name}
         width={size}
