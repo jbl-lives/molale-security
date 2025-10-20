@@ -1,5 +1,4 @@
 // src/app/about/page.tsx
-import AboutHero from "./AboutHero";
 import MissionVision from "./MissionVision";
 import Values from "./Values";
 import Compliance from "./Compliance";

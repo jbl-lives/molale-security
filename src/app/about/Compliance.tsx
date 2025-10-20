@@ -1,5 +1,5 @@
 // src/components/about/Compliance.tsx
-import Link from "next/link";
+
 import { certifications } from "@/data/company";
 import Image from "next/image";
 

@@ -31,7 +31,6 @@ export default function Leadership() {
 
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 place-items-center">
           {leadership.map((m) => {
-            const quote = toQuote(m.bio);
             return (
               <article
                 key={m.name}

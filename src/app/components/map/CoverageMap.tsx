@@ -2,7 +2,6 @@
 
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Circle, CircleMarker, Popup } from "react-leaflet";
-import type { CoverageArea } from "@/data/coverage";
 import { coverageAreas, COVERAGE_CENTER } from "@/data/coverage";
 
 
