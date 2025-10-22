@@ -1,0 +1,50 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Course {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  code       String?  // e.g. PSIRA Grade C
+  level      String
+  duration   String   // "5 days"
+  price      String   // display price, e.g., "R2,950"
+  blurb      String
+  starts     CourseStart[]
+  applications Application[] 
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model CourseStart {
+  id        String   @id @default(cuid())
+  courseId  String
+  date      DateTime
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+model Application {
+  id          String   @id @default(cuid())
+  courseId    String?
+  course      Course?  @relation(fields: [courseId], references: [id], onDelete: SetNull)
+  fullName    String
+  email       String
+  phone       String
+  notes       String?
+  status      AppStatus @default(PENDING)
+  paid        Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+}
+
+
+enum AppStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
