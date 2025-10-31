@@ -13,8 +13,8 @@ import {
 
 export default function PsiraNextSteps() {
   return (
-    <section className="border-t bg-gradient-to-b from-white to-gray-50">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-10 md:py-14">
+    <section className="border-t bg-linear-to-b from-white to-gray-50">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-10 md:py-14">
         <header className="max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             After You Pass: Getting Your PSIRA Certificate
@@ -47,15 +47,15 @@ export default function PsiraNextSteps() {
 
             <ul className="mt-4 space-y-2 text-gray-700">
               <li className="flex gap-2">
-                <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                 Accuracy and completeness of your documents
               </li>
               <li className="flex gap-2">
-                <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                 Whether your training results were captured promptly
               </li>
               <li className="flex gap-2">
-                <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                 Overall volume at the regional office
               </li>
             </ul>
@@ -87,19 +87,19 @@ export default function PsiraNextSteps() {
             <div className="mt-4 grid gap-4">
               <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
                 <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-[var(--color-primary)]" /> Application & Identification
+                  <FileText className="h-4 w-4 text-(--color-primary)" /> Application & Identification
                 </h4>
                 <ul className="mt-2 space-y-1 text-gray-700">
                   <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                     Completed and signed PSIRA Individual Application Form
                   </li>
                   <li className="flex gap-2">
-                    <IdCard className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                    <IdCard className="mt-1 h-4 w-4 text-(--color-primary)" />
                     Certified copy of your South African ID (or passport/driver’s license where applicable)
                   </li>
                   <li className="flex gap-2">
-                    <ImageIcon className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                    <ImageIcon className="mt-1 h-4 w-4 text-(--color-primary)" />
                     Two passport-sized photos
                   </li>
                 </ul>
@@ -107,7 +107,7 @@ export default function PsiraNextSteps() {
 
               <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
                 <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <Home className="h-4 w-4 text-[var(--color-primary)]" /> Proof of Address
+                  <Home className="h-4 w-4 text-(--color-primary)" /> Proof of Address
                 </h4>
                 <p className="mt-1 text-gray-700">
                   Recent utility bill, municipal account, or lease agreement in your name (or an affidavit if needed).
@@ -116,7 +116,7 @@ export default function PsiraNextSteps() {
 
               <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
                 <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <GraduationCap className="h-4 w-4 text-[var(--color-primary)]" /> Training Proof
+                  <GraduationCap className="h-4 w-4 text-(--color-primary)" /> Training Proof
                 </h4>
                 <p className="mt-1 text-gray-700">
                   Accredited training certificate(s) such as <strong>Grade E/D/C</strong> and any specialist courses (e.g. Control Room).
@@ -125,19 +125,19 @@ export default function PsiraNextSteps() {
 
               <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
                 <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <Fingerprint className="h-4 w-4 text-[var(--color-primary)]" /> Background & Declarations
+                  <Fingerprint className="h-4 w-4 text-(--color-primary)" /> Background & Declarations
                 </h4>
                 <ul className="mt-2 space-y-1 text-gray-700">
                   <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                     Full set of fingerprints (captured at the relevant facility)
                   </li>
                   <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                     Criminal record declaration / clearance where applicable
                   </li>
                   <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-[var(--color-primary)]" />
+                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
                     Prior-force clearance if you previously served in official/military/security/police/intelligence
                   </li>
                 </ul>
@@ -155,7 +155,7 @@ export default function PsiraNextSteps() {
 
         <div className="mt-8 rounded-2xl bg-gray-900 text-white p-4 md:p-5">
           <div className="flex items-start gap-3">
-            <ShieldCheck className="mt-0.5 h-5 w-5 text-[var(--color-primary)]" />
+            <ShieldCheck className="mt-0.5 h-5 w-5 text-(--color-primary)" />
             <p className="text-sm md:text-base">
               We’re here to help: once you pass, our team provides a simple step-by-step pack so you can submit a clean,
               complete PSIRA application and avoid back-and-forth delays.

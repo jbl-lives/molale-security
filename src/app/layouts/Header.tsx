@@ -30,8 +30,8 @@ export default function Header() {
   const isTraining = pathname.startsWith("/training");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b">
-      <div className="w-full max-w-screen-xl mx-auto px-4 md:px-6 flex h-20 items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/70 border-b">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 flex h-20 items-center justify-between">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <Image
@@ -55,10 +55,10 @@ export default function Header() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={[
-                      "relative inline-flex items-center transition-colors rounded-sm px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/30",
+                      "relative inline-flex items-center transition-colors rounded-sm px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
                       active
-                        ? "text-[var(--color-primary)] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-[var(--color-primary)]"
-                        : "text-gray-700 hover:text-[var(--color-primary)]",
+                        ? "text-(--color-primary) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-[var(--color-primary)]"
+                        : "text-gray-700 hover:text-(--color-primary)",
                     ].join(" ")}
                   >
                     {item.label}
@@ -108,8 +108,8 @@ export default function Header() {
                         href={item.href}
                         className={[
                           "block rounded-md px-3 py-2 text-base transition-colors",
-                          "hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/30",
-                          active ? "text-[var(--color-primary)] font-semibold" : "text-gray-700",
+                          "hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+                          active ? "text-(--color-primary) font-semibold" : "text-gray-700",
                         ].join(" ")}
                       >
                         {item.label}

@@ -5,7 +5,7 @@ import Compliance from "./Compliance";
 import Leadership from "./Leadership";
 import Milestones from "./Milestones";
 import Stats from "./Stats";
-import PrimaryCta from "../components/sections/PrimaryCta";
+import PrimaryCta from "../home/components/sections/PrimaryCta";
 import AboutHeroModern from "./AboutHeroModern";
 
 export const metadata = {

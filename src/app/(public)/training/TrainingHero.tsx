@@ -8,10 +8,10 @@ export default function TrainingHero() {
   const { openWithCourse } = useApplyDialog();
 
   return (
-    <section className="mx-auto max-w-screen-xl px-4 md:px-6 py-10 md:py-14">
+    <section className="mx-auto max-w-7xl px-4 md:px-6 py-10 md:py-14">
       <div>
         <h1 className="text-4xl md:text-6xl mb-4 font-bold tracking-tight text-gray-700">
-          Our <span className="text-[var(--color-primary)]">Training Academy</span>
+          Our <span className="text-(--color-primary)">Training Academy</span>
         </h1>
       </div>
 

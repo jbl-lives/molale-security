@@ -6,7 +6,7 @@ import Process from "./Process";
 import ServicesHighlights from "./ServicesHighlights";
 import ServicesGrid from "./ServicesGrid";
 import ServicesTrust from "./ServicesTrust";
-import PrimaryCta from "../components/sections/PrimaryCta";
+import PrimaryCta from "../home/components/sections/PrimaryCta";
 
 export const metadata: Metadata = {
   title: "Security Services",

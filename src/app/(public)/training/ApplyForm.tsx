@@ -17,18 +17,34 @@ const courseOptions = [
 
 export default function ApplyForm({ preselectedCourse, onSubmitted }: Props) {
   const [course, setCourse] = useState(preselectedCourse ?? "");
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setCourse(preselectedCourse ?? "");
-  }, [preselectedCourse]);
-
-  const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     const fd = new FormData(e.currentTarget);
-    // TODO: send to API / email service
-    alert("Thanks! We’ll confirm your seat shortly.");
-    onSubmitted?.();
-  }, [onSubmitted]);
+    const payload = {
+      courseTitle: fd.get("course") || preselectedCourse,
+      fullName: fd.get("name"),
+      email: fd.get("email") || null,
+      phone: fd.get("phone"),
+      notes: fd.get("message") || null,
+      startDate: fd.get("start") || null,
+    };
+
+    try {
+      const res = await fetch("/api/applications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Application failed");
+      alert("Thanks! We’ll confirm your seat shortly.");
+      onSubmitted?.();
+    } catch {
+      setError("Failed to submit application");
+    }
+  }, [onSubmitted, preselectedCourse]);
 
   const field =
     "mt-1 w-full rounded-xl bg-white text-gray-900 placeholder-gray-500 " +
@@ -85,7 +101,7 @@ export default function ApplyForm({ preselectedCourse, onSubmitted }: Props) {
       </div>
 
       <div className="flex items-start gap-3 text-gray-800">
-        <input id="consent" name="consent" type="checkbox" required className="mt-1 h-4 w-4 rounded border-gray-400 text-[var(--color-primary)]" />
+        <input id="consent" name="consent" type="checkbox" required className="mt-1 h-4 w-4 rounded border-gray-400 text-(--color-primary)" />
         <label htmlFor="consent" className="text-sm leading-5">
           I agree to be contacted about my application. We do not share personal information.
         </label>

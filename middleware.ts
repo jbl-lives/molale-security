@@ -1,15 +1,27 @@
-// src/middleware.ts
-import { NextResponse, type NextRequest } from "next/server";
+// middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  // Match /admin/* (from (admin)/admin/)
   if (pathname.startsWith("/admin")) {
-    const token = req.headers.get("authorization")?.replace("Bearer ", "");
-    if (!token || token !== process.env.ADMIN_TOKEN) {
-      return new NextResponse("Unauthorized", { status: 401, headers: { "WWW-Authenticate": "Bearer" } });
+    const adminCookie = req.cookies.get("admin")?.value;
+
+    if (!adminCookie || adminCookie !== "true") {
+      const url = req.nextUrl.clone();
+      url.pathname = "/login";
+      url.search = ""; // Clear query params
+      return NextResponse.redirect(url);
     }
   }
+
   return NextResponse.next();
 }
 
-export const config = { matcher: ["/admin/:path*"] };
+export const config = {
+  matcher: [
+    "/admin/:path*", // This matches /admin/courses/list
+  ],
+};
