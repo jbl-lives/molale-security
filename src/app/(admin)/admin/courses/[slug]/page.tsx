@@ -3,27 +3,32 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import ApplyForm from "@/app/(public)/training/ApplyForm";
 import Image from "next/image";
-import { use } from "react";
 
-// Fix 1: Correct type for generateMetadata
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const course = await prisma.course.findUnique({ where: { slug } });
-  if (!course) return { title: "Course Not Found" };
-  return { title: `${course.title} | Molale Security` };
+// Type for this route's props
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = params;
+
+  const course = await prisma.course.findUnique({
+    where: { slug },
+  });
+
+  if (!course) {
+    return { title: "Course Not Found" };
+  }
+
+  return {
+    title: `${course.title} | Molale Security`,
+  };
 }
 
-// Fix 2: Correct type for page component
-export default async function CoursePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params; // ← This is correct
+export default async function CoursePage({ params }: PageProps) {
+  const { slug } = params;
 
   const course = await prisma.course.findUnique({
     where: { slug },
@@ -43,7 +48,7 @@ export default async function CoursePage({
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <h1 className="text-4xl md:text-5xl font-bold">{course.title}</h1>
               <p className="mt-2 text-xl opacity-90">
@@ -55,17 +60,25 @@ export default async function CoursePage({
           <div className="p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Course Overview</h2>
-                <p className="text-gray-700 leading-relaxed text-lg">{course.blurb}</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Course Overview
+                </h2>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  {course.blurb}
+                </p>
 
                 {course.price && (
                   <div className="mt-8 p-6 bg-green-50 rounded-xl">
-                    <p className="text-2xl font-bold text-green-800">Course Fee: {course.price}</p>
+                    <p className="text-2xl font-bold text-green-800">
+                      Course Fee: {course.price}
+                    </p>
                   </div>
                 )}
 
                 <div className="mt-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Upcoming Start Dates</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    Upcoming Start Dates
+                  </h3>
                   <div className="flex flex-wrap gap-3">
                     {course.starts.length > 0 ? (
                       course.starts.map((s) => (
@@ -84,7 +97,9 @@ export default async function CoursePage({
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Apply Now</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Apply Now
+                </h2>
                 <ApplyForm preselectedCourse={course.title} />
               </div>
             </div>
