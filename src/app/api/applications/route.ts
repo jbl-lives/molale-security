@@ -15,12 +15,13 @@ export async function POST(req: Request) {
 
   const application = await prisma.application.create({
     data: {
-      courseId: course.id,
+      courseId: course.id,  // ← optional in schema, but we set it
       fullName,
       email: email || null,
       phone,
       notes: notes || null,
       status: "PENDING",
+      paid: false,
     },
   });
 

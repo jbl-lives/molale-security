@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full border-t bg-white">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-10 grid gap-8 md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 py-10 grid gap-8 md:grid-cols-3">
         <div>
           <h4 className="font-semibold text-gray-900">Molale Security</h4>
           <p className="mt-2 text-sm text-gray-600">Orkney • Klerksdorp, North West</p>

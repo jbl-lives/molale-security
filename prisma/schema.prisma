@@ -8,6 +8,7 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+
 model Course {
   id           String        @id @default(cuid())
   slug         String        @unique
@@ -32,7 +33,7 @@ model CourseStart {
 
 model Application {
   id        String    @id @default(cuid())
-  courseId  String?
+  courseId  String?   // ← optional (you had ?)
   fullName  String
   email     String
   phone     String
@@ -42,9 +43,10 @@ model Application {
   createdAt DateTime  @default(now())
   course    Course?   @relation(fields: [courseId], references: [id])
 }
-
-enum AppStatus {
+enum  AppStatus {
   PENDING
-  APPROVED
+  CONTACTED 
+  ENROLLED  
   REJECTED
+  APPROVED
 }

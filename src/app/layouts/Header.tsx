@@ -68,6 +68,15 @@ export default function Header() {
             })}
           </ul>
 
+          {/* Login Button */}
+          <div className="flex items-center gap-3">
+            <Link href="/login">
+              <Button variant="outline" size="sm">
+                Admin Login
+              </Button>
+            </Link>
+          </div>
+
           {/* Training CTA — turns yellow when on /training */}
           <Button
             asChild
