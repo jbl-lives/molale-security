@@ -44,7 +44,7 @@ export default function AdminDashboardLayout({ children }: { children: ReactNode
             <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
             <div className="flex items-center gap-3">
               <span className="text-sm text-gray-600">admin@molale.co.za</span>
-              <div className="w-8 h-8 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white text-sm font-medium">
+              <div className="w-8 h-8 rounded-full bg-(--color-primary) flex items-center justify-center text-white text-sm font-medium">
                 A
               </div>
             </div>
