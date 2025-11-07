@@ -57,7 +57,7 @@ export default function Header() {
                     className={[
                       "relative inline-flex items-center transition-colors rounded-sm px-1 py-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
                       active
-                        ? "text-(--color-primary) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-[var(--color-primary)]"
+                        ? "text-(--color-primary) after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-(--color-primary)"
                         : "text-gray-700 hover:text-(--color-primary)",
                     ].join(" ")}
                   >

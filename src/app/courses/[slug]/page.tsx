@@ -1,20 +1,32 @@
 // src/app/courses/[slug]/page.tsx
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import ApplyForm from "../../(public)/training/ApplyForm"; // or wherever your ApplyForm is
+import ApplyForm from "../../(public)/training/ApplyForm";
 import Image from "next/image";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+// For clarity: this is what params resolves to
+type CourseRouteParams = { slug: string };
+// In Next 15, params is a Promise on the server
+type CourseParamsPromise = Promise<CourseRouteParams>;
+
+export async function generateMetadata(props: { params: CourseParamsPromise }) {
+  // ✅ await the params before using slug
+  const { slug } = await props.params;
+
   const course = await prisma.course.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
+
   if (!course) return { title: "Course Not Found" };
   return { title: `${course.title} | Molale Security` };
 }
 
-export default async function CoursePage({ params }: { params: { slug: string } }) {
+export default async function CoursePage(props: { params: CourseParamsPromise }) {
+  // ✅ await the params before using slug
+  const { slug } = await props.params;
+
   const course = await prisma.course.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
     include: { starts: { orderBy: { date: "asc" } } },
   });
 
@@ -45,17 +57,25 @@ export default async function CoursePage({ params }: { params: { slug: string } 
             <div className="grid md:grid-cols-2 gap-12">
               {/* Left: Details */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Course Overview</h2>
-                <p className="text-gray-700 leading-relaxed text-lg">{course.blurb}</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Course Overview
+                </h2>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  {course.blurb}
+                </p>
 
                 {course.price && (
                   <div className="mt-8 p-6 bg-green-50 rounded-xl">
-                    <p className="text-2xl font-bold text-green-800">Course Fee: {course.price}</p>
+                    <p className="text-2xl font-bold text-green-800">
+                      Course Fee: {course.price}
+                    </p>
                   </div>
                 )}
 
                 <div className="mt-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Upcoming Start Dates</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    Upcoming Start Dates
+                  </h3>
                   <div className="flex flex-wrap gap-3">
                     {course.starts.length > 0 ? (
                       course.starts.map((s) => (
@@ -75,7 +95,9 @@ export default async function CoursePage({ params }: { params: { slug: string } 
 
               {/* Right: Apply Form */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Apply Now</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Apply Now
+                </h2>
                 <ApplyForm preselectedCourse={course.title} />
               </div>
             </div>
