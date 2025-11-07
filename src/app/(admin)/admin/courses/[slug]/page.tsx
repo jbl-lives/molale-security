@@ -1,25 +1,29 @@
 // src/app/courses/[slug]/page.tsx
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import ApplyForm from "@/app/(public)/training/ApplyForm"; // Adjust path if needed
+import ApplyForm from "@/app/(public)/training/ApplyForm";
 import Image from "next/image";
-import { use } from "react"; // ← Import React.use
+import { use } from "react";
 
+// Fix 1: Correct type for generateMetadata
 export async function generateMetadata({
   params,
-}: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; // ← Unwrap Promise
-  const course = await prisma.course.findUnique({
-    where: { slug },
-  });
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const course = await prisma.course.findUnique({ where: { slug } });
   if (!course) return { title: "Course Not Found" };
   return { title: `${course.title} | Molale Security` };
 }
 
+// Fix 2: Correct type for page component
 export default async function CoursePage({
   params,
-}: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; // ← Unwrap Promise
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params; // ← This is correct
 
   const course = await prisma.course.findUnique({
     where: { slug },
@@ -31,7 +35,6 @@ export default async function CoursePage({
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        {/* Hero */}
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
           <div className="relative h-64 md:h-96">
             <Image
@@ -40,7 +43,7 @@ export default async function CoursePage({
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <h1 className="text-4xl md:text-5xl font-bold">{course.title}</h1>
               <p className="mt-2 text-xl opacity-90">
@@ -51,7 +54,6 @@ export default async function CoursePage({
 
           <div className="p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-12">
-              {/* Left: Details */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Course Overview</h2>
                 <p className="text-gray-700 leading-relaxed text-lg">{course.blurb}</p>
@@ -81,7 +83,6 @@ export default async function CoursePage({
                 </div>
               </div>
 
-              {/* Right: Apply Form */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Apply Now</h2>
                 <ApplyForm preselectedCourse={course.title} />
