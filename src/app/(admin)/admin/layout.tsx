@@ -60,7 +60,7 @@ export default function AdminDashboardLayout({ children }: { children: ReactNode
 
 function SidebarLink({ href, children, icon }: { href: string; children: ReactNode; icon: ReactNode }) {
   return (
-    <Link href={href} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100">
+    <Link href={href} className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 hover:bg-gray-100">
       {icon}
       <span className="font-medium">{children}</span>
     </Link>
