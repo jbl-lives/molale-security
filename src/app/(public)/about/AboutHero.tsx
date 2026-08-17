@@ -8,7 +8,7 @@ export default function AboutHero() {
           >
           <div className="absolute inset-0 -z-10 bg-black/50 backdrop-blur-[1.5px]" />
 
-          <div className="mx-auto max-w-screen-xl px-4 md:px-6">
+          <div className="mx-auto max-w-7xl px-4 md:px-6">
               {/* Center vertically & horizontally */}
               <div className="min-h-[70svh] md:min-h-[80svh] flex items-center justify-center">
               <div className="text-center">

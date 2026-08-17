@@ -1,76 +1,81 @@
-// src/components/about/Leadership.tsx
 "use client";
 
 import Image from "next/image";
 import { leadership } from "@/data/company";
+import { Linkedin, Mail } from "lucide-react";
 
-// --- tiny helpers for the fallback header ---
+// --- refined helpers ---
 function getInitials(name: string) {
-  const [a = "", b = ""] = name.trim().split(/\s+/);
-  return ((a[0] ?? "") + (b[0] ?? "")).toUpperCase() || "U";
-}
-function hashHue(str: string) {
-  let h = 0;
-  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
-  return h % 360;
-}
-function bgForName(name: string) {
-  const hue = hashHue(name);
-  return `hsl(${hue} 70% 45%)`;
-}
-function toQuote(src: string, maxWords = 12) {
-  const words = src.trim().split(/\s+/);
-  return words.slice(0, maxWords).join(" ") + (words.length > maxWords ? "…" : "");
+  const parts = name.trim().split(/\s+/);
+  return ((parts[0]?.[0] ?? "") + (parts[parts.length - 1]?.[0] ?? "")).toUpperCase();
 }
 
 export default function Leadership() {
   return (
-    <section className="w-full  py-12 md:py-16 border-y">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl mb-6 font-bold text-gray-900 text-center md:text-left">Leadership</h2>
+    <section className="w-full py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-6">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl">
+            <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">
+              The Frontline
+            </span>
+            <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
+              Executive <span className="text-[#D4A017]">Leadership</span>
+            </h2>
+          </div>
+          <p className="max-w-xs text-slate-500 text-sm leading-relaxed">
+            Our directors bring decades of combined tactical and administrative 
+            expertise to the North West security landscape.
+          </p>
+        </div>
 
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 place-items-center">
-          {leadership.map((m) => {
-            return (
-              <article
-                key={m.name}
-                className="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-white text-gray-700 shadow-md"
-              >
-                {/* Media header (image area) */}
-                <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl shadow-lg">
-                  {m.avatar ? (
-                    <Image
-                      src={m.avatar}
-                      alt={m.name}
-                      fill
-                      sizes="(min-width:1024px) 320px, (min-width:640px) 45vw, 90vw"
-                      className="object-cover"
-                      priority={false}
-                    />
-                  ) : (
-                    <div
-                      className="h-full w-full grid place-items-center text-white"
-                      style={{
-                        background: `linear-gradient(90deg, ${bgForName(m.name)}, color-mix(in oklab, ${bgForName(
-                          m.name
-                        )} 85%, #000))`,
-                      }}
-                      aria-hidden="true"
-                    >
-                      <span className="text-4xl font-bold tracking-wide">{getInitials(m.name)}</span>
-                    </div>
-                  )}
+        {/* Leadership Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {leadership.map((m) => (
+            <article key={m.name} className="group">
+              {/* Image Container: Clean, Framed look */}
+              <div className="relative aspect-4/5 overflow-hidden rounded-2xl bg-slate-100 border border-slate-100 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2">
+                {m.avatar ? (
+                  <Image
+                    src={m.avatar}
+                    alt={m.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="h-full w-full grid place-items-center bg-slate-900 text-white">
+                    <span className="text-5xl font-light tracking-tighter text-slate-700">
+                      {getInitials(m.name)}
+                    </span>
+                  </div>
+                )}
+                
+                {/* Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Social Links on Hover */}
+                <div className="absolute bottom-6 left-6 flex gap-3 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#D4A017] transition-colors cursor-pointer">
+                    <Linkedin className="h-4 w-4" />
+                  </div>
+                  <div className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#D4A017] transition-colors cursor-pointer">
+                    <Mail className="h-4 w-4" />
+                  </div>
                 </div>
+              </div>
 
-                {/* Body */}
-                <div className="p-6">
-                  <h3 className="mb-1 text-xl font-semibold leading-snug text-gray-900">{m.name}</h3>
-                  <p className="text-sm font-medium text-gray-600">{m.role}</p>
-                  
+              {/* Text Content */}
+              <div className="mt-6 text-center md:text-left">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight">{m.name}</h3>
+                <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
+                  <div className="h-px w-4 bg-[#D4A017]" />
+                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">{m.role}</p>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

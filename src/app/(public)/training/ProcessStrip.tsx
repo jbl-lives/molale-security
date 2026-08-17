@@ -1,51 +1,74 @@
-import { ClipboardList, BookOpenCheck, GraduationCap, ShieldCheck } from "lucide-react";
+import { ClipboardList, BookOpenCheck, GraduationCap, ShieldCheck, ArrowRight } from "lucide-react";
 
 export default function ProcessStrip() {
   const STEPS = [
-    { title: "1) Enrol",       desc: "Pick your start date and submit the application form.", icon: ClipboardList },
-    { title: "2) Learn",       desc: "Attend classes and practical exercises with our trainers.", icon: BookOpenCheck },
-    { title: "3) Certificate", desc: "Pass assessments and receive your Molale certificate of completion.", icon: GraduationCap },
-    { title: "4) PSIRA",       desc: "Apply at PSIRA (Bloemfontein or Johannesburg) using our guidance.", icon: ShieldCheck },
-  ];
-
-  const CARD_BG = [
-    "bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(59,130,246,0.10)_100%)]",
-    "bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(16,185,129,0.10)_100%)]",
-    "bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(168,85,247,0.10)_100%)]",
-    "bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(236,72,153,0.10)_100%)]",
-  ];
-
-  const CHIP_BG = [
-    "bg-[rgba(59,130,246,0.12)] text-[rgb(59,130,246)]",
-    "bg-[rgba(16,185,129,0.12)] text-[rgb(16,185,129)]",
-    "bg-[rgba(168,85,247,0.12)] text-[rgb(168,85,247)]",
-    "bg-[rgba(236,72,153,0.12)] text-[rgb(236,72,153)]",
+    { title: "Enrol", desc: "Select your course and secure your spot via our digital registration.", icon: ClipboardList },
+    { title: "Learn", desc: "Engage in expert-led theory and practical field exercises.", icon: BookOpenCheck },
+    { title: "Certify", desc: "Complete assessments to earn your Molale Academy credentials.", icon: GraduationCap },
+    { title: "PSIRA", desc: "Finalize your professional registration with our expert guidance.", icon: ShieldCheck },
   ];
 
   return (
-    <section className="border-t bg-gradient-to-b from-white to-gray-50">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-10 md:py-14">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">How the process works</h2>
+    <section className="bg-[#D4A017] py-20 md:py-28 relative overflow-hidden">
+      {/* Subtle Pattern Overlay for texture */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
-        <div className="mt-8 grid gap-6 md:grid-cols-4">
-          {STEPS.map(({ title, desc, icon: Icon }, i) => (
-            <div
-              key={title}
-              className={[
-                "rounded-2xl p-6",
-                CARD_BG[i % CARD_BG.length],
-                "shadow-[0_8px_24px_rgba(0,0,0,.06)] ring-1 ring-black/5",
-                "hover:shadow-[0_14px_36px_rgba(0,0,0,.10)] transition"
-              ].join(" ")}
-            >
-              <span className={`inline-grid h-12 w-12 place-items-center rounded-xl ${CHIP_BG[i % CHIP_BG.length]}`}>
-                <Icon className="h-6 w-6" />
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-gray-900">{title}</h3>
-              <p className="mt-2 text-gray-700">{desc}</p>
-            </div>
-          ))}
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="text-center md:text-left mb-16">
+          <span className="text-xs font-bold tracking-[0.3em] text-white/80 uppercase">
+            Step-by-Step Guide
+          </span>
+          <h2 className="text-4xl md:text-5xl mt-3 font-bold text-white tracking-tight">
+            How the process <span className="text-slate-900">works</span>
+          </h2>
         </div>
+
+        <div className="grid gap-4 md:grid-cols-4 lg:gap-6">
+  {STEPS.map(({ title, desc, icon: Icon }, i) => (
+    <div
+      key={title}
+      className="group relative 
+      /* Base: Deep Dark Charcoal */
+      bg-slate-900/95 backdrop-blur-md 
+      border border-slate-800 rounded-3xl p-8 
+      shadow-xl shadow-slate-950/20
+      transition-all duration-500 
+      hover:bg-slate-950 hover:border-[#D4A017]/40 hover:shadow-2xl hover:-translate-y-2"
+    >
+      {/* Step Number Badge */}
+      <div className="absolute top-6 right-8 text-4xl font-black 
+          text-white/10 
+          group-hover:text-[#D4A017]/20 transition-colors">
+        0{i + 1}
+      </div>
+
+      {/* Icon Container */}
+      <div className="inline-grid h-14 w-14 place-items-center rounded-2xl bg-slate-800 text-[#D4A017] border border-slate-700 group-hover:bg-[#D4A017] group-hover:text-slate-950 transition-all duration-300 shadow-xl">
+        <Icon className="h-7 w-7" />
+      </div>
+
+      <div className="mt-8">
+        <h3 className="text-xl font-bold 
+                      text-white 
+                      group-hover:text-[#D4A017] transition-colors tracking-tight">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed transition-colors
+                      text-slate-400 
+                      group-hover:text-slate-300">
+          {desc}
+        </p>
+      </div>
+
+      {/* Mobile/Desktop Decorative Arrow Connector */}
+      {i < STEPS.length - 1 && (
+        <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 z-20">
+          <ArrowRight className="w-6 h-6 text-slate-950/40 group-hover:text-slate-950 transition-colors" />
+        </div>
+      )}
+    </div>
+  ))}
+</div>
       </div>
     </section>
   );

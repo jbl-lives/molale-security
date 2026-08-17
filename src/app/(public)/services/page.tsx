@@ -9,7 +9,7 @@ import ServicesTrust from "./ServicesTrust";
 import PrimaryCta from "../home/components/sections/PrimaryCta";
 
 export const metadata: Metadata = {
-  title: "Security Services",
+  title: "Our Services | Molale Security",
   description:
     "Armed response, guarding, VIP protection, CCTV & alarms, screening and investigations—PSIRA-compliant security services across Klerksdorp and surrounds.",
   alternates: { canonical: "/services" },

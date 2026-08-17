@@ -7,17 +7,16 @@ import {
   ShieldCheck, Shield, Star, Camera, IdCard, Search, ArrowRight,
 } from "lucide-react";
 
-// Optional: small blurb + icon lookup by slug (keeps your data file unchanged)
 const BLURBS: Record<string, string> = {
-  "armed-response": "24/7 control room, rapid dispatch and GPS-tracked vehicles.",
-  "physical-guarding": "Vetted guards for homes, business, events & sites.",
-  "vip-protection": "Discreet executive protection with advance planning.",
-  "cctv-alarms": "Installations, upgrades and monitoring integration.",
-  screening: "Background checks and access control for safer operations.",
-  "private-investigations": "Evidence gathering, interviews and surveillance.",
+  "armed-response": "Elite rapid-response teams with GPS-tracked vehicle dispatch.",
+  "physical-guarding": "Professional on-site presence for residential and industrial assets.",
+  "vip-protection": "Specialized executive protection for high-profile individuals.",
+  "cctv-alarms": "State-of-the-art surveillance and integrated monitoring systems.",
+  screening: "Comprehensive background vetting and tactical access control.",
+  "private-investigations": "Discrete evidence gathering and corporate intelligence.",
 };
 
-const ICONS: Record<string, React.ComponentType<any>> = {
+const ICONS: Record<string, any> = {
   "armed-response": ShieldCheck,
   "physical-guarding": Shield,
   "vip-protection": Star,
@@ -28,81 +27,72 @@ const ICONS: Record<string, React.ComponentType<any>> = {
 
 export default function ServicesGrid() {
   return (
-    <section className="w-full py-12 md:py-16">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6">
-        <header className="max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What we offer</h2>
-          <p className="mt-2 text-gray-600">Flexible packages for homes, businesses and industrial sites.</p>
-        </header>
+    <section className="bg-white py-20 md:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header: Corporate Left-Aligned */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl">
+            <span className="text-xs font-bold tracking-[0.3em] text-blue-600 uppercase">
+              Operational Divisions
+            </span>
+            <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
+              Our <span className="text-[#D4A017]">Core Services</span>
+            </h2>
+          </div>
+          <p className="max-w-xs text-slate-500 text-sm leading-relaxed md:text-right">
+            Tailored security architecture designed to mitigate risk across diverse environments.
+          </p>
+        </div>
 
-        <div className="mt-8 grid gap-6 sm:gap-8 sm:grid-cols-2">
+        {/* The Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesFancy.map((s, idx) => {
             const Icon = ICONS[s.slug] ?? ShieldCheck;
             const blurb = s.blurb ?? BLURBS[s.slug] ?? "";
 
             return (
-              <article
+              <Link
                 key={s.slug}
-                className="
-                  group relative overflow-hidden rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,.06)]
-                  ring-1 ring-black/5 transition hover:shadow-[0_16px_40px_rgba(0,0,0,.10)]
-                "
+                href={`/services/${s.slug}`}
+                className="group relative h-[450px] w-full overflow-hidden rounded-3xl bg-slate-900 shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-                {/* image */}
-                <div className="relative h-56 md:h-64">
-                  <Image
-                    src={s.img}
-                    alt={s.title}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition duration-500 will-change-transform group-hover:scale-[1.02]"
-                    priority={idx < 2}
-                  />
-                  {/* subtle dark overlay for legibility */}
-                  <div className="absolute inset-0 bg-black/20" />
-                </div>
+                {/* Background Image: Grayscale to Color */}
+                <Image
+                  src={s.img}
+                  alt={s.title}
+                  fill
+                  className="object-cover opacity-60 grayscale transition-all duration-700 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0"
+                  priority={idx < 3}
+                />
 
-                {/* glassy banner inside the image */}
-                <div className="pointer-events-none absolute bottom-3 left-3 right-3">
-                  <div
-                    className="
-                      relative rounded-xl px-4 py-3 md:px-5 md:py-3
-                      text-white backdrop-blur-md
-                      bg-white/10 ring-1 ring-white/25
-                    "
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      {/* title + (optional) blurb */}
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="inline-grid h-8 w-8 place-items-center rounded-lg bg-white/20 ring-1 ring-white/30">
-                            <Icon className="h-4 w-4 text[var(--color-primary)]" />
-                          </span>
-                          <h3 className="truncate text-base md:text-lg font-semibold">{s.title}</h3>
-                        </div>
-                        {blurb && (
-                          <p className="mt-1 line-clamp-1 text-xs md:text-sm text-white/85">
-                            {blurb}
-                          </p>
-                        )}
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent transition-opacity group-hover:opacity-40" />
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="translate-y-8 transition-transform duration-500 group-hover:translate-y-0">
+                    
+                    {/* Icon & Title Row */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="h-10 w-10 bg-[#D4A017] rounded-xl flex items-center justify-center text-slate-950 shadow-lg">
+                        <Icon className="h-5 w-5" />
                       </div>
+                      <h3 className="text-xl font-bold text-white tracking-tight">{s.title}</h3>
+                    </div>
 
-                      {/* “Learn more” chip INSIDE the banner */}
-                      <Link
-                        href={`/services/${s.slug}`}
-                        className="
-                          pointer-events-auto inline-flex items-center gap-1.5 rounded-full
-                          bg-yellow-100/90 px-3 py-1.5 text-xs md:text-sm font-medium text-gray-900
-                          shadow hover:bg-white transition
-                        "
-                        aria-label={`Learn more about ${s.title}`}
-                      >
-                        Learn more <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
+                    {/* Blurb: Hidden until hover on desktop, visible on mobile */}
+                    <p className="text-sm text-slate-200 leading-relaxed mb-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100 line-clamp-2 md:line-clamp-none">
+                      {blurb}
+                    </p>
+
+                    {/* Action Line */}
+                    <div className="flex items-center gap-2 text-[#D4A017] font-bold text-xs tracking-widest uppercase">
+                      <span>Explore Service</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
                     </div>
                   </div>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>

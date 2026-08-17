@@ -2,49 +2,91 @@ import { BookOpenCheck, ClipboardList, WalletCards, GraduationCap, ShieldCheck, 
 
 export default function ProvideAndCompliance() {
   return (
-    <section className="border-t bg-gray-50">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-10 md:py-14">
-        <div className="grid gap-8 md:grid-cols-2">
-          {/* What we provide */}
+    <section className="border-t border-slate-100 bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-16 lg:grid-cols-2 items-start">
+          
+          {/* Section 1: What we provide */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">What we provide</h2>
-            <ul className="mt-6 grid gap-4">
+            <div className="mb-10">
+              <span className="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase">
+                Academy Benefits
+              </span>
+              <h2 className="text-3xl md:text-4xl mt-2 font-bold text-slate-900 tracking-tight">
+                What we provide
+              </h2>
+            </div>
+
+            <ul className="space-y-8">
               {[
-                { icon: BookOpenCheck, text: "Structured modules aligned to PSIRA outcomes (Grades E–C & Control Room)." },
-                { icon: ClipboardList, text: "Learning notes, assessments, and support for revision." },
-                { icon: WalletCards, text: "Certificate of Completion from Molale Security Training Academy." },
-                { icon: GraduationCap, text: "Guidance to register for PSIRA after you pass (what to take, where to go)." },
-              ].map(({ icon: Icon, text }) => (
-                <li key={text} className="flex items-start gap-3">
-                  <span className="inline-grid h-10 w-10 place-items-center rounded-xl bg-gray-800/90 text-[var(--color-primary)]">
+                { icon: BookOpenCheck, title: "Structured Learning", text: "Modules aligned to PSIRA outcomes for Grades E–C and Control Room." },
+                { icon: ClipboardList, title: "Academic Support", text: "Comprehensive learning notes, formal assessments, and revision guidance." },
+                { icon: WalletCards, title: "Official Certification", text: "Earn a recognized Certificate of Completion from Molale Security." },
+                { icon: GraduationCap, title: "Post-Course Guidance", text: "Step-by-step assistance for PSIRA registration after your final pass." },
+              ].map(({ icon: Icon, title, text }) => (
+                <li key={title} className="flex items-start gap-5 group">
+                  {/* Icon Container: Fixed width to prevent "mushing" */}
+                  <div className="flex-shrink-0 inline-grid h-12 w-12 place-items-center rounded-xl bg-slate-900 text-white group-hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-slate-200">
                     <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="text-gray-700">{text}</span>
+                  </div>
+                  
+                  <div className="pt-1">
+                    <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-1">{title}</h4>
+                    <p className="text-slate-500 text-sm leading-relaxed">{text}</p>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Compliance card */}
-          <div className="rounded-2xl p-6 bg-gradient-to-br from-white to-gray-50 shadow-[0_8px_24px_rgba(0,0,0,.06)] ring-1 ring-black/5">
-            <div className="flex items-center mb-6 gap-3">
-              <span className="inline-grid h-10 w-10 place-items-center rounded-xl bg-gray-800/90 text-[var(--color-primary)]">
-                <ShieldCheck className="h-5 w-5" />
-              </span>
-              <h3 className="text-lg font-semibold text-gray-900">PSIRA alignment & compliance</h3>
-            </div>
-            <p className="my-3 text-gray-700">
-              Training outcomes align to PSIRA requirements. Upon successful completion, you’ll receive a{" "}
-              <strong>Molale Security Certificate of Completion</strong>. You then apply for your official{" "}
-              <strong>PSIRA certificate</strong> at a PSIRA regional office—most learners in the North West use{" "}
-              <em>Bloemfontein</em> or <em>Johannesburg</em>.
-            </p>
-            <div className="mt-8 grid gap-2 text-sm text-gray-600">
-              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> PSIRA Bloemfontein: Regional Office</div>
-              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> PSIRA Johannesburg: Head / Regional Office</div>
-              <p className="mt-6">We supply a checklist of documents and guide you through the application.</p>
+          {/* Section 2: Compliance Card (Professionalized) */}
+          <div className="relative">
+            {/* Decorative background element for corporate feel */}
+            <div className="absolute -inset-4 bg-slate-50 rounded-3xl -z-10 hidden lg:block" />
+            
+            <div className="rounded-2xl p-8 md:p-10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 relative z-10">
+              <div className="flex items-center mb-8 gap-4">
+                <div className="flex-shrink-0 h-10 w-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                  <ShieldCheck className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight">PSIRA Compliance</h3>
+              </div>
+
+              <div className="space-y-6">
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Our training outcomes are strictly mapped to <span className="text-slate-900 font-semibold">PSIRA requirements</span>. 
+                  Upon success, you will receive your Molale Security Certificate of Completion.
+                </p>
+                
+                <div className="bg-slate-50 p-6 rounded-xl space-y-4">
+                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em]">Regional Offices</p>
+                  
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">Johannesburg</p>
+                      <p className="text-xs text-slate-500">Head & Regional Office</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">Bloemfontein</p>
+                      <p className="text-xs text-slate-500">Regional Support Office</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100">
+                  <p className="text-xs text-slate-500 italic">
+                    We supply a full document checklist and navigate the application process with you.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+          
         </div>
       </div>
     </section>

@@ -1,10 +1,11 @@
-// src/components/about/Values.tsx
+"use client";
+
 import { values } from "@/data/company";
 import {
-  ShieldCheck,        // Integrity
-  Zap,                // Preparedness
-  Handshake,          // Respect
-  ClipboardList,      // Accountability
+  ShieldCheck,   // Integrity
+  Zap,           // Preparedness
+  Handshake,     // Respect
+  ClipboardList, // Accountability
   type LucideIcon,
 } from "lucide-react";
 
@@ -17,31 +18,53 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 export default function Values() {
   return (
-    <section className="w-full bg-[var(--color-primary)] py-14 md:py-16 border-y">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6">
-        {/* Heading contrasts against the primary background */}
-        <h2 className="text-3xl md:text-4xl font-bold text-white">Our Values</h2>
+    <section className="relative w-full bg-slate-950 py-24 md:py-32 overflow-hidden border-t border-white/5">
+      {/* Background Decorative Element: Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4 ">
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="text-xs font-bold tracking-[0.4em] text-[#D4A017] uppercase">
+            The Molale Standard
+          </span>
+          <h2 className="text-4xl md:text-5xl mt-3 font-bold text-white tracking-tight">
+            Our Core <span className="font-light italic text-slate-400">Values</span>
+          </h2>
+          <div className="mt-6 h-1 w-16 bg-[#D4A017] mx-auto rounded-full" />
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {values.map((v) => {
             const key = v.title.trim().toLowerCase();
-            const Icon = ICON_MAP[key] ?? ShieldCheck; // fallback
+            const Icon = ICON_MAP[key] ?? ShieldCheck;
+
             return (
               <div
                 key={v.title}
-                className="p-6 bg-gradient-to-br from-white to-gray-50
-                           shadow-[0_4px_16px_rgb(0_0_0_/_0.06)]
-                           hover:shadow-[0_8px_28px_rgb(0_0_0_/_0.10)]
-                           transition rounded-xl"
+                className="group relative p-8 bg-white/5 border border-white/10 rounded-4xl transition-all duration-500 hover:bg-white/10 hover:border-[#D4A017]/30 hover:-translate-y-2 shadow-2xl"
               >
-                {/* icon chip (consistent with the rest of the site) */}
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl
-                                bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+                {/* Icon Container with Glow */}
+                <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-[#D4A017] shadow-lg border border-white/5 transition-transform group-hover:scale-110">
+                  <Icon className="h-7 w-7" />
+                  {/* Subtle Glow behind icon on hover */}
+                  <div className="absolute inset-0 bg-[#D4A017]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                <h3 className="mt-4 text-lg font-semibold text-gray-900">{v.title}</h3>
-                <p className="mt-2 text-gray-600 leading-relaxed">{v.desc}</p>
+                <div className="mt-8">
+                  <h3 className="text-xl font-bold text-white tracking-tight uppercase group-hover:text-[#D4A017] transition-colors">
+                    {v.title}
+                  </h3>
+                  <div className="mt-2 h-px w-8 bg-[#D4A017]/30 group-hover:w-full transition-all duration-500" />
+                  <p className="mt-4 text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors">
+                    {v.desc}
+                  </p>
+                </div>
+
+                {/* Corner Decorative Accent */}
+                <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-10 transition-opacity">
+                   <ShieldCheck className="h-12 w-12 text-white" />
+                </div>
               </div>
             );
           })}

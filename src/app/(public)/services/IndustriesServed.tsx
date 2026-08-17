@@ -1,4 +1,5 @@
-// src/components/services/IndustriesServed.tsx
+"use client";
+
 import Image from "next/image";
 import {
   Building2,
@@ -7,6 +8,7 @@ import {
   Factory,
   Store,
   Hammer,
+  ArrowUpRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -14,95 +16,77 @@ type Industry = {
   icon: LucideIcon;
   name: string;
   desc: string;
-  img: string; // background image path (public/)
+  img: string;
 };
 
 const industries: Industry[] = [
-  {
-    icon: Home,
-    name: "Residential",
-    desc: "Estates, complexes, standalone homes and farms.",
-    img: "/assets/images/industries/residential.jpg",
-  },
-  {
-    icon: Store,
-    name: "Retail",
-    desc: "Shops, malls and warehousing / distribution.",
-    img: "/assets/images/industries/retail.jpg",
-  },
-  {
-    icon: Building2,
-    name: "Commercial",
-    desc: "Offices, parks, clinics and mixed-use sites.",
-    img: "/assets/images/industries/commercial.jpg",
-  },
-  {
-    icon: Factory,
-    name: "Industrial",
-    desc: "Manufacturing, plant, yards and logistics hubs.",
-    img: "/assets/images/industries/industrial.jpg",
-  },
-  {
-    icon: Hammer,
-    name: "Construction",
-    desc: "Projects, sites and asset protection.",
-    img: "/assets/images/industries/construction.jpg",
-  },
-  {
-    icon: GraduationCap,
-    name: "Education",
-    desc: "Schools, colleges and training venues.",
-    img: "/assets/images/industries/education.jpg",
-  },
+  { icon: Home, name: "Residential", desc: "Estates, complexes, and standalone property protection.", img: "/assets/images/industries/residential.jpg" },
+  { icon: Store, name: "Retail", desc: "Malls, shopping centers, and high-volume warehousing.", img: "/assets/images/industries/retail.jpg" },
+  { icon: Building2, name: "Commercial", desc: "Corporate office parks, clinics, and mixed-use sites.", img: "/assets/images/industries/commercial.jpg" },
+  { icon: Factory, name: "Industrial", desc: "Manufacturing plants, yards, and logistics hubs.", img: "/assets/images/industries/industrial.jpg" },
+  { icon: Hammer, name: "Construction", desc: "Active project sites and critical asset protection.", img: "/assets/images/industries/construction.jpg" },
+  { icon: GraduationCap, name: "Education", desc: "Schools, colleges, and private training venues.", img: "/assets/images/industries/education.jpg" },
 ];
 
 export default function IndustriesServed() {
   return (
-    <section className="w-full bg-gray-50 py-12 md:py-16 border-y">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Industries we protect</h2>
+    <section className="w-full bg-slate-50 py-20 md:py-28 border-y border-slate-200">
+      <div className="mx-auto max-w-7xl px-6">
+        
+        {/* Header Area */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl">
+            <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">
+              Sector Expertise
+            </span>
+            <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
+              Industries <span className="text-[#D4A017]">We Protect</span>
+            </h2>
+          </div>
+          <p className="max-w-xs text-slate-500 text-sm leading-relaxed">
+            Bespoke security architecture tailored for high-risk environments and critical infrastructure.
+          </p>
+        </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
+        {/* The Bento Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map(({ icon: Icon, name, desc, img }) => (
             <article
               key={name}
-              className="group relative overflow-hidden rounded-2xl shadow-[0_8px_28px_rgb(0_0_0_/_0.08)]"
+              className="group relative h-[400px] w-full overflow-hidden rounded-[2.5rem] bg-slate-900 shadow-xl transition-all duration-500 hover:-translate-y-2"
             >
-              {/* background image */}
-              <div className="relative h-56 md:h-64">
-                <Image
-                  src={img}
-                  alt={name}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover transition duration-500 will-change-transform group-hover:scale-[1.03]"
-                  priority={false}
-                />
-                {/* subtle dark overlay for readability */}
-                <div className="absolute inset-0 bg-black/35 md:bg-black/30" />
+              {/* Image Layer: Grayscale to Color */}
+              <Image
+                src={img}
+                alt={name}
+                fill
+                className="object-cover opacity-50 grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+              />
+              
+              {/* Tactical Gradient Overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/20 to-transparent" />
 
-                {/* glass panel (title + desc + icon) */}
-                <div
-                  className="
-                    absolute bottom-3 left-3 right-3
-                    rounded-xl border border-white/30
-                    bg-white/15 backdrop-blur-md
-                    p-4 text-white shadow-[0_10px_30px_rgba(0,0,0,.25)]
-                  "
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold leading-tight">{name}</h3>
-                    <span
-                      className="
-                        inline-flex h-10 w-10 items-center  justify-center rounded-lg
-                        bg-white/25 text-yellow-400 border border-yellow-100
-                      "
-                    >
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    
+              {/* Content Layer */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
+                  
+                  {/* Icon & Title Row */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="h-12 w-12 rounded-2xl bg-[#D4A017] text-slate-950 flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <div className="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ArrowUpRight className="h-4 w-4" />
+                    </div>
                   </div>
-                  <p className="mt-2 text-sm text-white/90">{desc}</p>
+
+                  <h3 className="text-2xl font-bold text-white tracking-tight">{name}</h3>
+                  <p className="mt-2 text-sm text-slate-300 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {desc}
+                  </p>
+
+                  {/* Decorative Bottom Bar */}
+                  <div className="mt-6 h-0.5 w-0 bg-[#D4A017] transition-all duration-700 group-hover:w-full" />
                 </div>
               </div>
             </article>

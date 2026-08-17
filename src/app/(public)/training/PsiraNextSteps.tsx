@@ -1,4 +1,3 @@
-// src/app/training/PsiraNextSteps.tsx
 import {
   Clock,
   FileText,
@@ -9,157 +8,150 @@ import {
   Fingerprint,
   BadgeCheck,
   ShieldCheck,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function PsiraNextSteps() {
   return (
-    <section className="border-t bg-linear-to-b from-white to-gray-50">
-      <div className="mx-auto max-w-7xl px-4 md:px-6 py-10 md:py-14">
-        <header className="max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            After You Pass: Getting Your PSIRA Certificate
+    <section className="bg-slate-50 py-20 border-t border-slate-200">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header Section */}
+        <div className="mb-16">
+          <span className="text-xs font-bold tracking-[0.3em] text-blue-600 uppercase">
+            Certification Phase
+          </span>
+          <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
+            After You Pass: <span className="font-light italic">The PSIRA Process</span>
           </h2>
-          <p className="mt-2 text-gray-700">
-            Here’s how long it usually takes and what you’ll need to submit for your PSIRA application.
+          <p className="mt-4 text-slate-500 max-w-2xl leading-relaxed">
+            Successfully completing your training is the first step. Here is the roadmap and 
+            documentation required to finalize your professional PSIRA registration.
           </p>
-        </header>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {/* LEFT: Timeframe (green theme) */}
-          <article
-            className="
-              rounded-2xl p-6 shadow-[0_8px_24px_rgba(0,0,0,.06)] ring-1 ring-black/5
-              bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(16,185,129,0.10)_100%)]
-            "
-          >
-            <div className="flex items-center gap-3">
-              <span className="inline-grid h-12 w-12 place-items-center rounded-xl bg-[rgba(16,185,129,.12)] text-[rgb(16,185,129)]">
-                <Clock className="h-6 w-6" />
-              </span>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Typical Timeframe</h3>
-                <p className="text-gray-700">
-                  Most applicants receive their PSIRA certificate in <strong>± 6–8 weeks</strong> after submitting a
-                  complete, correct application. Timing can vary depending on:
-                </p>
-              </div>
-            </div>
-
-            <ul className="mt-4 space-y-2 text-gray-700">
-              <li className="flex gap-2">
-                <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                Accuracy and completeness of your documents
-              </li>
-              <li className="flex gap-2">
-                <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                Whether your training results were captured promptly
-              </li>
-              <li className="flex gap-2">
-                <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                Overall volume at the regional office
-              </li>
-            </ul>
-
-            <div className="mt-5 rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
-              <p className="text-sm text-gray-800">
-                <strong>Tip:</strong> Molale will guide you with a submission checklist to help prevent delays.
-              </p>
-            </div>
-          </article>
-
-          {/* RIGHT: Required documents (same green theme) */}
-          <article
-            className="
-              rounded-2xl p-6 shadow-[0_8px_24px_rgba(0,0,0,.06)] ring-1 ring-black/5
-              bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(16,185,129,0.10)_100%)]
-            "
-          >
-            <div className="flex items-center gap-3">
-              <span className="inline-grid h-12 w-12 place-items-center rounded-xl bg-[rgba(16,185,129,.12)] text-[rgb(16,185,129)]">
-                <FileText className="h-6 w-6" />
-              </span>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">Documents You’ll Need</h3>
-                <p className="text-gray-700">Have these ready when applying at a PSIRA regional office.</p>
-              </div>
-            </div>
-
-            <div className="mt-4 grid gap-4">
-              <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
-                <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-(--color-primary)" /> Application & Identification
-                </h4>
-                <ul className="mt-2 space-y-1 text-gray-700">
-                  <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                    Completed and signed PSIRA Individual Application Form
-                  </li>
-                  <li className="flex gap-2">
-                    <IdCard className="mt-1 h-4 w-4 text-(--color-primary)" />
-                    Certified copy of your South African ID (or passport/driver’s license where applicable)
-                  </li>
-                  <li className="flex gap-2">
-                    <ImageIcon className="mt-1 h-4 w-4 text-(--color-primary)" />
-                    Two passport-sized photos
-                  </li>
-                </ul>
-              </div>
-
-              <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
-                <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <Home className="h-4 w-4 text-(--color-primary)" /> Proof of Address
-                </h4>
-                <p className="mt-1 text-gray-700">
-                  Recent utility bill, municipal account, or lease agreement in your name (or an affidavit if needed).
-                </p>
-              </div>
-
-              <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
-                <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <GraduationCap className="h-4 w-4 text-(--color-primary)" /> Training Proof
-                </h4>
-                <p className="mt-1 text-gray-700">
-                  Accredited training certificate(s) such as <strong>Grade E/D/C</strong> and any specialist courses (e.g. Control Room).
-                </p>
-              </div>
-
-              <div className="rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
-                <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-                  <Fingerprint className="h-4 w-4 text-(--color-primary)" /> Background & Declarations
-                </h4>
-                <ul className="mt-2 space-y-1 text-gray-700">
-                  <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                    Full set of fingerprints (captured at the relevant facility)
-                  </li>
-                  <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                    Criminal record declaration / clearance where applicable
-                  </li>
-                  <li className="flex gap-2">
-                    <BadgeCheck className="mt-1 h-4 w-4 text-(--color-primary)" />
-                    Prior-force clearance if you previously served in official/military/security/police/intelligence
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-5 rounded-xl bg-white/70 backdrop-blur ring-1 ring-black/5 p-4">
-              <p className="text-sm text-gray-800">
-                <strong>Where to apply:</strong> Most learners from North West use <em>PSIRA Bloemfontein</em> or{" "}
-                <em>PSIRA Johannesburg</em>. Molale will share directions and a prep checklist before you go.
-              </p>
-            </div>
-          </article>
         </div>
 
-        <div className="mt-8 rounded-2xl bg-gray-900 text-white p-4 md:p-5">
-          <div className="flex items-start gap-3">
-            <ShieldCheck className="mt-0.5 h-5 w-5 text-(--color-primary)" />
-            <p className="text-sm md:text-base">
-              We’re here to help: once you pass, our team provides a simple step-by-step pack so you can submit a clean,
-              complete PSIRA application and avoid back-and-forth delays.
-            </p>
+        <div className="grid gap-8 lg:grid-cols-3">
+          
+          {/* LEFT COLUMN: Timeframe & Tips */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="h-12 w-12 bg-blue-50 rounded-2xl flex items-center justify-center">
+                  <Clock className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">Timeline</h3>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                  <p className="text-3xl font-bold text-slate-900">6—8 <span className="text-sm font-medium text-slate-500">Weeks</span></p>
+                  <p className="text-xs text-slate-500 uppercase tracking-wider mt-1">Average Processing Time</p>
+                </div>
+                
+                <ul className="space-y-3">
+                  {[
+                    "Document Accuracy",
+                    "Regional Office Volume",
+                    "Result Capturing Speed"
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm text-slate-600">
+                      <CheckCircle2 className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <div className="flex gap-3">
+                   <div className="h-8 w-8 bg-[#D4A017]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <ShieldCheck className="h-4 w-4 text-[#D4A017]" />
+                   </div>
+                   <p className="text-xs text-slate-500 leading-relaxed italic">
+                    <strong>Molale Pro-Tip:</strong> We provide a pre-submission audit to ensure your application is 100% correct before you travel.
+                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Document Checklist (Main Content) */}
+          <div className="lg:col-span-2">
+            <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+               {/* Background Decorative Element */}
+               <div className="absolute top-0 right-0 p-12 opacity-5">
+                  <FileText className="h-64 w-64 text-white" />
+               </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="h-12 w-12 bg-white/10 rounded-2xl flex items-center justify-center">
+                    <FileText className="h-6 w-6 text-[#D4A017]" />
+                  </div>
+                  <h3 className="text-2xl font-bold">Required Documentation</h3>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Category 1 */}
+                  <div className="space-y-4">
+                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#D4A017] uppercase">Identity & Forms</h4>
+                    <div className="space-y-3">
+                      <div className="flex gap-3 items-start group">
+                        <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20 transition-colors">
+                          <BadgeCheck className="h-3 w-3 text-[#D4A017]" />
+                        </div>
+                        <p className="text-sm text-slate-300">Signed PSIRA Individual Form</p>
+                      </div>
+                      <div className="flex gap-3 items-start group">
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
+                          <IdCard className="h-3 w-3 text-[#D4A017]" />
+                        </div>
+                        <p className="text-sm text-slate-300">Certified SA ID Copy</p>
+                      </div>
+                      <div className="flex gap-3 items-start group">
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
+                          <ImageIcon className="h-3 w-3 text-[#D4A017]" />
+                        </div>
+                        <p className="text-sm text-slate-300">2x Passport Photos</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Category 2 */}
+                  <div className="space-y-4">
+                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#D4A017] uppercase">Verification</h4>
+                    <div className="space-y-3">
+                      <div className="flex gap-3 items-start group">
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
+                          <Home className="h-3 w-3 text-[#D4A017]" />
+                        </div>
+                        <p className="text-sm text-slate-300">Proof of Residence (Utility/Lease)</p>
+                      </div>
+                      <div className="flex gap-3 items-start group">
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
+                          <GraduationCap className="h-3 w-3 text-[#D4A017]" />
+                        </div>
+                        <p className="text-sm text-slate-300">Grade E/D/C Training Certificates</p>
+                      </div>
+                      <div className="flex gap-3 items-start group">
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
+                          <Fingerprint className="h-3 w-3 text-[#D4A017]" />
+                        </div>
+                        <p className="text-sm text-slate-300">Captured Fingerprint Set</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Regional Offices Footer */}
+                <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                  <p className="text-xs text-slate-400">Regional Application Hubs:</p>
+                  <div className="flex gap-6">
+                    <span className="text-sm font-semibold border-b border-[#D4A017] pb-1">Bloemfontein</span>
+                    <span className="text-sm font-semibold border-b border-[#D4A017] pb-1">Johannesburg</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

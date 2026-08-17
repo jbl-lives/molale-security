@@ -1,84 +1,102 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Award, Users, Shield } from "lucide-react";
 
-export default function AboutHeroModern() {
+export default function AboutHero() {
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-10 md:py-14">
-        {/* Headline */}
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h1 className="text-4xl md:text-6xl mb-4 font-bold tracking-tight text-gray-700">
-              About <span className="text-[var(--color-primary)]">Molale Security</span>
+    <section className="relative w-full bg-white pt-12 pb-20 overflow-hidden">
+      {/* Background Decorative Accent */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 -z-10 -skew-x-12 translate-x-32" />
+
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">
+              Our Legacy
+            </span>
+            <h1 className="text-5xl md:text-7xl mt-4 font-bold tracking-tight text-slate-900 leading-[0.9]">
+              About <br /> 
+              <span className="text-[#D4A017]">Molale Security</span>
             </h1>
-            
           </div>
+          <p className="max-w-md text-slate-500 text-sm leading-relaxed border-l-2 border-[#D4A017] pl-6 py-2">
+            Founded on the principles of integrity and tactical precision, we have 
+            grown into the North West's premier security force, protecting 
+            industrial assets and private interests since 2006.
+          </p>
         </div>
 
-        {/* Media with glass overlay */}
-        <div className="mt-6">
-          <div className="relative overflow-hidden rounded-xl bg-gray-200 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
-            <Image
-              src="/assets/images/about-hero2.jpg" // change to /assets/images/about-hero.jpg if you add one
-              alt="Molale Security team and operations"
-              width={1600}
-              height={800}
-              priority
-              className="h-[42svh] w-full object-cover md:h-[52svh]"
-            />
+        {/* The Main Visual Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          {/* Left: Detailed Stat Cards (4 columns) */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="flex-1 bg-slate-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden group">
+               <Award className="absolute -right-4 -bottom-4 h-24 w-24 text-white/5 group-hover:scale-110 transition-transform" />
+               <p className="text-[#D4A017] text-[10px] font-black uppercase tracking-[0.2em] mb-2">Established</p>
+               <h2 className="text-5xl font-bold mb-1">2006</h2>
+               <p className="text-slate-400 text-xs">Over 18 years of operational excellence in high-risk environments.</p>
+            </div>
 
-            {/* glass banner */}
-            <div className="pointer-events-none absolute bottom-4 left-4 right-4 md:left-6 md:right-6">
-              <div className="relative rounded-2xl bg-black/35 backdrop-blur-md text-white px-4 py-3 md:px-6 md:py-4">
-                <span className="absolute -top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold text-gray-900">
-                  ABOUT
-                </span>
+            <div className="flex-1 bg-white border border-slate-100 rounded-3xl p-8 shadow-sm relative overflow-hidden group">
+               <Users className="absolute -right-4 -bottom-4 h-24 w-24 text-slate-50 group-hover:scale-110 transition-transform" />
+               <p className="text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Manpower</p>
+               <h2 className="text-5xl font-bold text-slate-900 mb-1">350+</h2>
+               <p className="text-slate-500 text-xs">Vetted, PSIRA-registered, and tactically trained officers on active duty.</p>
+            </div>
+          </div>
 
-                <div className="flex items-center justify-between gap-3">
-                  <div className="min-w-0">
-                    <div className="truncate text-sm md:text-base font-semibold">
-                      People • Process • Technology • Community
+          {/* Right: The Cinematic Hero Image (8 columns) */}
+          <div className="lg:col-span-8 relative">
+            <div className="relative h-full min-h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/assets/images/about-heros.jpg"
+                alt="Molale Security Operations"
+                fill
+                priority
+                className="object-cover"
+              />
+              
+              {/* Bottom "Compliance" Label */}
+              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-4">
+                 <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center">
+                       <Shield className="h-5 w-5 text-[#D4A017]" />
                     </div>
-                    <p className="mt-0.5 line-clamp-1 text-xs md:text-sm text-white/85">
-                      PSIRA compliant • Documented SOPs • GPS-tracked patrols • Transparent reporting
-                    </p>
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="pointer-events-auto grid h-9 w-9 place-items-center rounded-full bg-white/90 text-gray-900 shadow hover:bg-white"
-                    aria-label="Contact us"
-                  >
+                    <div>
+                       <p className="text-white text-sm font-bold tracking-tight">24/7 Command Center</p>
+                       <p className="text-white/60 text-[10px] uppercase tracking-widest">Real-time GPS Monitoring</p>
+                    </div>
+                 </div>
+                 
+                 <Link 
+                  href="/contact" 
+                  className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-slate-950 hover:bg-[#D4A017] hover:text-white transition-all shadow-lg"
+                 >
                     <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
+                 </Link>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Stat strip (tailored for About) */}
-        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
-          <div className="rounded-2xl bg-gray-50 px-5 py-4 shadow-sm">
-            <div className="text-3xl md:text-4xl font-extrabold text-gray-900">2006</div>
-            <div className="mt-1 text-xs uppercase tracking-wide text-gray-600">Founded</div>
-          </div>
-
-          <div className="rounded-2xl bg-gray-50 px-5 py-4 shadow-sm">
-            <div className="flex items-center justify-between">
-              <div className="text-3xl md:text-4xl font-extrabold text-gray-900">40+</div>
-              <span className="rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wider text-gray-700">
-                Officers
-              </span>
+        {/* Footer Text for Hero */}
+        <div className="mt-12 flex flex-wrap gap-8 justify-center md:justify-start border-t border-slate-100 pt-8">
+            <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">SAIDSA Compliant</span>
             </div>
-            <div className="mt-1 text-xs uppercase tracking-wide text-gray-500">Vetted & Trained</div>
-          </div>
-
-          <div className="col-span-2 md:col-span-1 rounded-2xl bg-gray-900 px-5 py-4 text-white shadow-sm">
-            <div className="text-3xl md:text-4xl font-extrabold">24/7</div>
-            <div className="mt-1 text-xs uppercase tracking-wide text-white/80">Control Room & Dispatch</div>
-          </div>
+            <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">PSIRA Accredited</span>
+            </div>
+            <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ISO Standards</span>
+            </div>
         </div>
       </div>
     </section>

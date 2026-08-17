@@ -1,18 +1,29 @@
-// src/app/layout.tsx
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+
+
+export const metadata = {
+  title: {
+    default: "Molale Security Group",
+    template: "%s | Molale Security"
+  },
+  description: "Elite tactical protection and training services.",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body 
-        className="min-h-dvh bg-(--color-background) text-(--color-foreground) antialiased"
+        className="min-h-dvh bg-white text-slate-900 antialiased font-sans"
+        style={{ 
+          // High-end sans-serif stack (Inter-like)
+          fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' 
+        }}
         suppressHydrationWarning
       >
         {children}
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

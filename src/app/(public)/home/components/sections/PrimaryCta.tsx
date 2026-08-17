@@ -1,65 +1,75 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MessageSquare, PhoneCall, ArrowRight } from "lucide-react";
 
 export default function PrimaryCta() {
+  const phoneNumber = "27838874914";
+  const message = "Hi Molale Security, I need urgent assistance.";
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+
   return (
-    <section className="w-full bg-[var(--color-primary)] text-white ">
-      <div
-        className="mx-auto max-w-screen-xl px-4 md:px-6 py-6 md:py-6
-                   grid items-center gap-8 md:grid-cols-[1fr_auto_1fr]"
-      >
-        {/* Left: copy */}
-        <div className="text-left">
-          <h3 className="text-2xl md:text-3xl font-bold leading-tight">
-            Need security today?
-          </h3>
-          <p className="mt-2 text-white/90 max-w-md">
-            Rapid response, vetted officers, and 24/7 monitoring—ready when you are.
-          </p>
-        </div>
+    <section className="w-full bg-[#D4A017] relative overflow-hidden py-6">
+      {/* Subtle "Security Mesh" Background Pattern */}
+      <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none" />
+      
+      {/* Radial "Glow" for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)]" />
 
-        {/* Middle: phone image */}
-        <div className="flex justify-center">
-          <div className="relative h-40 w-40 md:h-48 md:w-48">
-            <Image
-              src="/assets/images/phone.png"    /* put your png here */
-              alt="Contact Molale Security"
-              fill
-              priority={false}
-              className="object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.25)]"
-            />
+      <div className="mx-auto max-w-7xl px-6 py-12 md:py-0 relative z-10">
+        <div className="grid items-center gap-12 md:grid-cols-12">
+          
+          {/* Left: Persuasive Copy (5 columns) */}
+          <div className="md:col-span-5 text-center md:text-left">
+            <span className="text-[10px] font-black tracking-[0.3em] text-slate-900/60 uppercase">
+              Immediate Assistance
+            </span>
+            <h3 className="mt-2 text-3xl md:text-5xl font-bold text-slate-950 leading-tight tracking-tighter">
+              Ready to <br className="hidden md:block" /> 
+              <span className="italic font-light">Secure Your Asset?</span>
+            </h3>
+            <p className="mt-4 text-slate-800 text-sm md:text-base font-medium max-w-sm mx-auto md:mx-0">
+              Our tactical dispatch is standing by. Secure a professional 
+              assessment and rapid deployment plan today.
+            </p>
           </div>
-        </div>
 
-        {/* Right: actions */}
-        <div className="flex flex-wrap justify-start md:justify-end gap-3">
-          <Button asChild className="bg-white text-[var(--color-primary)] hover:bg-white/90">
-            <Link href="/contact">Get a Quote</Link>
-          </Button>
+          {/* Middle: Cinematic Phone Graphic (3 columns) */}
+          <div className="md:col-span-3 flex justify-center relative">
+            <div className="relative h-56 w-56 md:h-72 md:w-72 -mb-8 md:-mb-12 mt-4">
+              <Image
+                src="/assets/images/phone.png"
+                alt="Molale Tactical Dispatch"
+                fill
+                className="object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.3)] animate-float"
+              />
+            </div>
+          </div>
 
-          {/* WhatsApp solid green with icon */}
-          <Button
-            asChild
-            className="bg-[#25D366] hover:bg-[#1ebe57] active:bg-[#19a84b] text-white"
-          >
+          {/* Right: Premium Actions (4 columns) */}
+          <div className="md:col-span-4 flex flex-col sm:flex-row md:flex-col justify-center items-center md:items-end gap-4">
+            <Link
+              href="/contact"
+              className="group w-full max-w-[240px] flex items-center justify-center gap-3 bg-slate-950 text-white px-8 py-4 rounded-xl font-bold transition-all hover:bg-slate-800 hover:shadow-xl active:scale-95"
+            >
+              <PhoneCall className="h-4 w-4 text-[#D4A017]" />
+              <span className="text-sm tracking-wide">REQUEST A QUOTE</span>
+            </Link>
+
             <a
-              href="https://wa.me/27XXXXXXXXX?text=Hi%20Molale%20Security%2C%20I%20need%20assistance"
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Chat with us on WhatsApp"
+              className="group w-full max-w-[240px] flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-xl font-bold border border-slate-200 transition-all hover:bg-slate-50 hover:shadow-lg active:scale-95"
             >
-              <span className="inline-flex items-center gap-2">
-                <svg
-                  width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                  className="shrink-0"
-                >
-                  <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.55 0 .26 5.29.26 11.8c0 2.09.55 4.11 1.6 5.9L0 24l6.5-1.7a11.7 11.7 0 0 0 5.57 1.42h.01c6.51 0 11.8-5.29 11.8-11.8 0-3.15-1.23-6.11-3.36-8.35ZM12.08 21.1h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.86 1.01 1.03-3.77-.24-.39a9.9 9.9 0 0 1-1.53-5.32c0-5.47 4.45-9.92 9.93-9.92 2.65 0 5.14 1.03 7.02 2.9a9.88 9.88 0 0 1 2.91 7.02c0 5.47-4.45 9.92-9.93 9.92Zm5.46-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.28-.47-2.44-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.17 5.03 4.45.7.3 1.24.48 1.66.62.7.22 1.33.19 1.83.11.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.27-.19-.57-.34Z" />
-                </svg>
-                WhatsApp Us
-              </span>
+              <MessageSquare className="h-4 w-4 text-green-600" />
+              <span className="text-sm tracking-wide">WHATSAPP US</span>
+              <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
             </a>
-          </Button>
+          </div>
+
         </div>
       </div>
     </section>
