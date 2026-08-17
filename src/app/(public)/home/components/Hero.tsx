@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { FileText, Shield, Zap, CheckCircle } from "lucide-react";
 
 export default function Hero() {
-  const phoneNumber = "27838874914";
+  const phoneNumber = "27813660159";
   const message = "Hi Molale Security, I need assistance";
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { MessageSquare, PhoneCall, ArrowRight } from "lucide-react";
 
 export default function PrimaryCta() {
-  const phoneNumber = "27838874914";
+  const phoneNumber = "27813660159"; // Updated to the correct number
   const message = "Hi Molale Security, I need urgent assistance.";
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
