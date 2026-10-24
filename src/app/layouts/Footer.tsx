@@ -62,6 +62,7 @@ export default function Footer() {
               {[
                 { label: "About Our Legacy", href: "/about" },
                 { label: "Tactical Academy", href: "/training" },
+                { label: "Careers", href: "/careers" },
                 { label: "Contact HQ", href: "/contact" },
                 { label: "Regional Coverage", href: "/services#coverage" },
               ].map((link) => (
@@ -107,9 +108,14 @@ export default function Footer() {
               © {currentYear} Molale Security Group
             </p>
             <div className="h-4 w-px bg-slate-800 hidden md:block" />
-            <Link href="/privacy" className="text-[10px] text-slate-600 font-bold uppercase tracking-widest hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
+            <nav aria-label="Legal" className="flex items-center gap-6">
+              <Link href="/privacy-policy" className="text-[10px] text-slate-600 font-bold uppercase tracking-widest hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms-of-service" className="text-[10px] text-slate-600 font-bold uppercase tracking-widest hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+            </nav>
           </div>
 
           {/* Compliance Badge */}
