@@ -3,8 +3,8 @@
 import { useRef, useState } from "react";
 import { Loader2, UploadCloud } from "lucide-react";
 
-const inputClass = "mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-[#D4A017]/70 focus:ring-4 focus:ring-[#D4A017]/10";
-const labelClass = "text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4A017]";
+const inputClass = "mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-[#c29a50]/70 focus:ring-4 focus:ring-[#c29a50]/10";
+const labelClass = "text-[10px] font-bold uppercase tracking-[0.2em] text-[#c29a50]";
 
 export default function CareersForm() {
   const [loading, setLoading] = useState(false);
@@ -59,7 +59,7 @@ export default function CareersForm() {
       <div>
         <label className={labelClass} htmlFor="careers-cv">CV file</label>
         <input
-          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-[#D4A017] file:px-4 file:py-2 file:text-xs file:font-bold file:text-slate-950`}
+          className={`${inputClass} file:mr-4 file:rounded-full file:border-0 file:bg-[#c29a50] file:px-4 file:py-2 file:text-xs file:font-bold file:text-slate-950`}
           id="careers-cv"
           name="cv"
           type="file"
@@ -68,7 +68,7 @@ export default function CareersForm() {
         />
       </div>
       <button
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-[#D4A017] px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-950 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c29a50] px-6 py-4 text-xs font-black uppercase tracking-widest text-slate-950 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
         type="submit"
         disabled={loading}
       >

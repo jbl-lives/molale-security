@@ -20,7 +20,7 @@ export default function TrainingHero() {
       <div className="mx-auto max-w-7xl px-6 mb-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[#8f692b] uppercase">
               Professional Excellence
             </span>
             <h1 className="text-5xl md:text-7xl mt-2 font-light tracking-tight text-slate-900">
@@ -68,19 +68,19 @@ export default function TrainingHero() {
         <div className="bg-slate-900 text-white p-6 md:p-10 rounded-xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
           <div className="flex gap-8 md:gap-12">
             <div>
-              <p className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-1">Accreditation</p>
+              <p className="text-[#d0ad6d] text-[10px] font-bold uppercase tracking-widest mb-1">Accreditation</p>
               <p className="text-xs md:text-sm font-medium">PSIRA Grades E - A</p>
             </div>
             <div className="hidden sm:block border-l border-white/10" />
             <div>
-              <p className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-1">Methodology</p>
+              <p className="text-[#d0ad6d] text-[10px] font-bold uppercase tracking-widest mb-1">Methodology</p>
               <p className="text-xs md:text-sm font-medium">Scenario-Based</p>
             </div>
           </div>
 
           <button
             onClick={() => openWithCourse()}
-            className="group flex items-center justify-center gap-4 bg-white text-slate-900 px-6 py-4 md:px-8 md:py-4 rounded-full font-bold hover:bg-blue-600 hover:text-white transition-all duration-300 w-full md:w-auto shadow-lg"
+            className="group flex items-center justify-center gap-4 bg-white text-slate-900 px-6 py-4 md:px-8 md:py-4 rounded-full font-bold hover:bg-[#8f692b] hover:text-white transition-all duration-300 w-full md:w-auto shadow-lg"
           >
             {/* Responsive Text */}
             <span className="md:hidden">ENROLL NOW</span>

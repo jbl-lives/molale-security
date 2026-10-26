@@ -48,8 +48,8 @@ const K9TrainingPage = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12 bg-[#D4A017]" />
-              <span className="text-[#D4A017] text-xs font-bold tracking-[0.4em] uppercase">Elite Academy</span>
+              <div className="h-px w-12 bg-[#c29a50]" />
+              <span className="text-[#c29a50] text-xs font-bold tracking-[0.4em] uppercase">Elite Academy</span>
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.85] mb-6">
               K-9 <br />
@@ -73,9 +73,9 @@ const K9TrainingPage = () => {
       <section className="py-24 px-6 relative overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-blue-600 text-xs font-bold tracking-[0.3em] uppercase">The Molale Standard</span>
+            <span className="text-[#8f692b] text-xs font-bold tracking-[0.3em] uppercase">The Molale Standard</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8 text-slate-900 tracking-tight">
-              Discipline. Bond. <br /><span className="text-[#D4A017]">Precision.</span>
+              Discipline. Bond. <br /><span className="text-[#c29a50]">Precision.</span>
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               At Molale Security, our K-9 division is built on the tactical bond between handler and dog. 
@@ -85,13 +85,13 @@ const K9TrainingPage = () => {
             <div className="grid grid-cols-2 gap-6">
                <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-lg bg-slate-100 flex items-center justify-center">
-                    <Zap className="h-4 w-4 text-[#D4A017]" />
+                    <Zap className="h-4 w-4 text-[#c29a50]" />
                   </div>
                   <span className="text-xs font-bold uppercase tracking-widest text-slate-900">Rapid Response</span>
                </div>
                <div className="flex items-center gap-3">
                   <div className="h-8 w-8 rounded-lg bg-slate-100 flex items-center justify-center">
-                    <Activity className="h-4 w-4 text-[#D4A017]" />
+                    <Activity className="h-4 w-4 text-[#c29a50]" />
                   </div>
                   <span className="text-xs font-bold uppercase tracking-widest text-slate-900">Health Audited</span>
                </div>
@@ -115,26 +115,26 @@ const K9TrainingPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">DH Certification <span className="text-slate-500 italic">Levels</span></h3>
-            <div className="mt-4 h-1 w-16 bg-[#D4A017] mx-auto rounded-full" />
+            <div className="mt-4 h-1 w-16 bg-[#c29a50] mx-auto rounded-full" />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {courses.map((course, index) => (
               <div key={index} className="group relative bg-white/5 border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
                 <div className="flex items-center justify-between mb-8">
-                  <div className="h-14 w-14 bg-slate-900 rounded-2xl flex items-center justify-center text-[#D4A017] shadow-xl border border-white/5">
+                  <div className="h-14 w-14 bg-slate-900 rounded-2xl flex items-center justify-center text-[#c29a50] shadow-xl border border-white/5">
                     <course.icon className="w-7 h-7" />
                   </div>
                   <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{course.level}</span>
                 </div>
 
-                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-[#D4A017] transition-colors">{course.title}</h4>
+                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-[#c29a50] transition-colors">{course.title}</h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-8">{course.description}</p>
                 
                 <ul className="space-y-3 border-t border-white/5 pt-8">
                   {course.details.map((detail) => (
                     <li key={detail} className="flex items-center gap-3 text-[10px] font-bold text-white/60 uppercase tracking-widest">
-                       <div className="h-1.5 w-1.5 rounded-full bg-[#D4A017]" />
+                       <div className="h-1.5 w-1.5 rounded-full bg-[#c29a50]" />
                        {detail}
                     </li>
                   ))}
@@ -155,7 +155,7 @@ const K9TrainingPage = () => {
             <div className="relative z-10 max-w-2xl">
               <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-none mb-6">
                 Ready to Join the <br />
-                <span className="text-[#D4A017]">K-9 Division?</span>
+                <span className="text-[#c29a50]">K-9 Division?</span>
               </h2>
               <p className="text-slate-400 text-lg mb-10 leading-relaxed">
                 Whether you are a civilian looking for career entry or a professional handler 
@@ -165,7 +165,7 @@ const K9TrainingPage = () => {
               <div className="flex flex-col sm:flex-row items-center gap-6">
                 <Link 
                   href="/register?academy=k9" 
-                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#D4A017] text-slate-950 px-10 py-5 rounded-full font-bold text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#D4A017]/20"
+                  className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#c29a50] text-slate-950 px-10 py-5 rounded-full font-bold text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#c29a50]/20"
                 >
                   START ENROLLMENT <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -177,7 +177,7 @@ const K9TrainingPage = () => {
 
               <div className="mt-12 p-6 bg-white/5 rounded-2xl border border-white/10 inline-block">
                 <p className="text-xs text-slate-500 font-medium">
-                  <span className="text-blue-400 font-bold">Requirement:</span> All applicants must hold a valid PSIRA registration for DH certification.
+                  <span className="text-[#d0ad6d] font-bold">Requirement:</span> All applicants must hold a valid PSIRA registration for DH certification.
                 </p>
               </div>
             </div>

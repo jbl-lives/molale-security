@@ -11,26 +11,20 @@ export default function PrimaryCta() {
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
   return (
-    <section className="w-full bg-[#D4A017] relative overflow-hidden py-6">
-      {/* Subtle "Security Mesh" Background Pattern */}
-      <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none" />
-      
-      {/* Radial "Glow" for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)]" />
-
-      <div className="mx-auto max-w-7xl px-6 py-12 md:py-0 relative z-10">
-        <div className="grid items-center gap-12 md:grid-cols-12">
+    <section className="w-full bg-[#f0ede6] relative overflow-hidden py-16 md:py-20">
+      <div className="absolute inset-y-0 left-0 w-1.5 bg-[#b88a35]" />
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="grid items-center gap-8 md:grid-cols-12 md:gap-10">
           
           {/* Left: Persuasive Copy (5 columns) */}
           <div className="md:col-span-5 text-center md:text-left">
-            <span className="text-[10px] font-black tracking-[0.3em] text-slate-900/60 uppercase">
+            <span className="text-xs font-semibold tracking-[0.18em] text-[#80602b] uppercase">
               Immediate Assistance
             </span>
-            <h3 className="mt-2 text-3xl md:text-5xl font-bold text-slate-950 leading-tight tracking-tighter">
-              Ready to <br className="hidden md:block" /> 
-              <span className="italic font-light">Secure Your Asset?</span>
+            <h3 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-950 leading-tight tracking-tight">
+              Ready to secure your asset?
             </h3>
-            <p className="mt-4 text-slate-800 text-sm md:text-base font-medium max-w-sm mx-auto md:mx-0">
+            <p className="mt-4 text-slate-600 text-base max-w-md mx-auto md:mx-0 leading-relaxed">
               Our tactical dispatch is standing by. Secure a professional 
               assessment and rapid deployment plan today.
             </p>
@@ -38,23 +32,23 @@ export default function PrimaryCta() {
 
           {/* Middle: Cinematic Phone Graphic (3 columns) */}
           <div className="md:col-span-3 flex justify-center relative">
-            <div className="relative h-56 w-56 md:h-72 md:w-72 -mb-8 md:-mb-12 mt-4">
+            <div className="relative h-40 w-40 md:h-52 md:w-52">
               <Image
                 src="/assets/images/phone.png"
                 alt="Molale Tactical Dispatch"
                 fill
-                className="object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.3)] animate-float"
+                className="object-contain"
               />
             </div>
           </div>
 
           {/* Right: Premium Actions (4 columns) */}
-          <div className="md:col-span-4 flex flex-col sm:flex-row md:flex-col justify-center items-center md:items-end gap-4">
+          <div className="md:col-span-4 flex flex-col sm:flex-row md:flex-col justify-center items-center md:items-end gap-3">
             <Link
               href="/contact"
-              className="group w-full max-w-[240px] flex items-center justify-center gap-3 bg-slate-950 text-white px-8 py-4 rounded-xl font-bold transition-all hover:bg-slate-800 hover:shadow-xl active:scale-95"
+              className="group w-full max-w-[240px] min-h-12 flex items-center justify-center gap-3 bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-slate-800"
             >
-              <PhoneCall className="h-4 w-4 text-[#D4A017]" />
+              <PhoneCall className="h-4 w-4 text-[#c29a50]" />
               <span className="text-sm tracking-wide">REQUEST A QUOTE</span>
             </Link>
 
@@ -62,7 +56,7 @@ export default function PrimaryCta() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-full max-w-[240px] flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-xl font-bold border border-slate-200 transition-all hover:bg-slate-50 hover:shadow-lg active:scale-95"
+              className="group w-full max-w-[240px] min-h-12 flex items-center justify-center gap-3 bg-white text-slate-900 px-6 py-3 rounded-lg font-semibold border border-slate-300 transition-colors hover:bg-slate-50"
             >
               <MessageSquare className="h-4 w-4 text-green-600" />
               <span className="text-sm tracking-wide">WHATSAPP US</span>

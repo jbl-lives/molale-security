@@ -11,27 +11,27 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <main className="w-full bg-white">
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:py-24 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:py-20 lg:grid-cols-[1fr_0.9fr] lg:gap-16 lg:items-center">
         <div className="max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-[0.35em] text-blue-600">Work with Molale</span>
-          <h1 className="mt-5 text-5xl font-bold leading-[0.98] tracking-tight text-slate-950 md:text-7xl">
-            Build a career in <span className="text-[#D4A017]">security.</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8f692b]">Work with Molale</span>
+          <h1 className="mt-5 text-4xl font-semibold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
+            Build a career in <span className="text-[#c29a50]">security.</span>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-600">
+          <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-slate-600">
             We welcome applications from people who are committed to protecting the communities we serve.
             Send us your CV and our team will keep it on file for suitable opportunities.
           </p>
-          <div className="mt-10 flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-[#D4A017]" />
+          <div className="mt-8 flex items-start gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-[#c29a50]" />
             <p className="text-sm leading-relaxed text-slate-600">
               Your CV is sent directly to our recruitment folder in Google Drive. It is not stored in the website database.
             </p>
           </div>
         </div>
 
-        <div className="rounded-[2rem] bg-slate-950 p-7 text-white shadow-2xl md:p-10">
+        <div className="rounded-2xl bg-slate-950 p-6 text-white shadow-xl md:p-9">
           <div className="mb-8 flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#D4A017] text-slate-950">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#c29a50] text-slate-950">
               <FileText className="h-6 w-6" />
             </div>
             <div>

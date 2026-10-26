@@ -110,7 +110,7 @@ export default function ApplyForm({ preselectedCourse, onSubmitted }: ApplyFormP
     return (
       <div className="space-y-6">
         <div className="text-center space-y-2">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-[#D4A017] mb-2">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-[#c29a50] mb-2">
             <ShieldCheck className="h-6 w-6" />
           </div>
           <h3 className="text-xl font-bold text-white tracking-tight">Security Check</h3>
@@ -126,13 +126,13 @@ export default function ApplyForm({ preselectedCourse, onSubmitted }: ApplyFormP
             onChange={(e) => setCode(e.target.value)}
             placeholder="0 0 0 0 0 0"
             maxLength={6}
-            className="w-full text-center text-2xl font-mono tracking-widest py-4 px-3 bg-slate-900 border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-[#D4A017] transition-all"
+            className="w-full text-center text-2xl font-mono tracking-widest py-4 px-3 bg-slate-900 border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-[#c29a50] transition-all"
             required
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#D4A017] text-slate-950 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl disabled:opacity-50 active:scale-95"
+            className="w-full bg-[#c29a50] text-slate-950 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl disabled:opacity-50 active:scale-95"
           >
             {loading ? (
               <>
@@ -161,7 +161,7 @@ export default function ApplyForm({ preselectedCourse, onSubmitted }: ApplyFormP
           onChange={(e) => setFullName(e.target.value)}
           required
           placeholder="e.g. John Doe"
-          className="w-full p-4 bg-slate-900 border border-white/10 rounded-2xl text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#D4A017] transition-all"
+          className="w-full p-4 bg-slate-900 border border-white/10 rounded-2xl text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#c29a50] transition-all"
         />
       </div>
 
@@ -175,14 +175,14 @@ export default function ApplyForm({ preselectedCourse, onSubmitted }: ApplyFormP
           onChange={(e) => setPhone(e.target.value)}
           required
           placeholder="083 123 4567"
-          className="w-full p-4 bg-slate-900 border border-white/10 rounded-2xl text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#D4A017] transition-all"
+          className="w-full p-4 bg-slate-900 border border-white/10 rounded-2xl text-white text-sm placeholder-slate-600 focus:outline-none focus:border-[#c29a50] transition-all"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-[#D4A017] text-slate-950 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl disabled:opacity-50 active:scale-95"
+        className="w-full bg-[#c29a50] text-slate-950 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white transition-all shadow-xl disabled:opacity-50 active:scale-95"
       >
         {loading ? (
           <>

@@ -52,17 +52,15 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-90 transition-all duration-300 ${
-        scrolled 
-          ? "bg-white/80 backdrop-blur-lg border-b border-slate-100 py-3" 
-          : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-90 border-b border-slate-200/80 bg-[#fbfaf7]/95 backdrop-blur-lg transition-all duration-300 ${
+        scrolled ? "py-2 shadow-sm" : "py-3"
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
         
         {/* Brand Lockup */}
-        <Link href="/" className="flex items-center gap-4 group">
-          <div className="relative h-10 w-10 md:h-12 md:w-12 transition-transform group-hover:scale-105">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative h-10 w-10 md:h-11 md:w-11">
             <Image
               src="/assets/images/logo.png"
               alt="Molale Security Logo"
@@ -72,26 +70,26 @@ export default function Header() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg md:text-xl font-black text-slate-900 tracking-tighter leading-none">
+            <span className="text-base md:text-lg font-bold text-slate-900 tracking-tight leading-none">
               MOLALE
             </span>
-            <span className="text-[10px] font-bold text-gray-500 tracking-[0.3em] uppercase leading-none mt-1">
+            <span className="text-[9px] font-semibold text-slate-500 tracking-[0.18em] uppercase leading-none mt-1.5">
               Security Services
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-10">
-          <ul className="flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
+          <ul className="flex items-center gap-7">
             {NAV.map((item) => {
               const active = isActive(item.href);
               return (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`text-xs font-bold uppercase tracking-widest transition-all hover:text-[#D4A017] ${
-                      active ? "text-[#D4A017]" : "text-slate-500"
+                    className={`text-sm font-medium tracking-normal transition-colors hover:text-[#9a7026] ${
+                      active ? "text-[#9a7026]" : "text-slate-600"
                     }`}
                   >
                     {item.label}
@@ -107,15 +105,15 @@ export default function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className={`rounded-full px-6 transition-all shadow-lg group/btn ${
+                className={`rounded-lg px-5 transition-colors shadow-none group/btn ${
                   isTraining
-                    ? "bg-[#D4A017] hover:bg-[#B88A12] text-white"
-                    : "bg-slate-950 hover:bg-blue-600 text-white"
+                    ? "bg-[#b88a35] hover:bg-[#a77c2e] text-slate-950"
+                    : "bg-slate-900 hover:bg-slate-800 text-white"
                 }`}
               >
                 <div className="flex items-center gap-2">
                   <GraduationCap className="h-4 w-4" />
-                  <span className="text-[10px] font-black uppercase tracking-widest">Academy</span>
+                  <span className="text-xs font-semibold">Academy</span>
                   <ChevronDown className="h-3 w-3 transition-transform group-data-[state=open]/btn:rotate-180" />
                 </div>
               </Button>
@@ -138,7 +136,7 @@ export default function Header() {
                 </DropdownMenuItem>
               ))}
               <div className="mt-4 pt-4 border-t border-slate-50">
-                <Link href="/training" className="text-xs font-bold text-[#D4A017] hover:text-[#D4A017] flex items-center justify-center gap-2">
+                <Link href="/training" className="text-xs font-bold text-[#c29a50] hover:text-[#c29a50] flex items-center justify-center gap-2">
                   View Overview Academy Page <ChevronDown className="h-3 w-3 -rotate-90" />
                 </Link>
               </div>
@@ -176,7 +174,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className={`text-3xl font-bold tracking-tighter transition-all ${
-                          isActive(item.href) ? "text-[#D4A017]" : "text-white"
+                          isActive(item.href) ? "text-[#c29a50]" : "text-white"
                         }`}
                       >
                         {item.label}
@@ -190,10 +188,10 @@ export default function Header() {
                     {ACADEMY_LINKS.map((link) => (
                       <SheetClose asChild key={link.href}>
                         <Link href={link.href} className="flex items-center gap-4 group">
-                          <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-[#D4A017] group-active:scale-95 transition-transform">
+                          <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-[#c29a50] group-active:scale-95 transition-transform">
                             <link.icon className="h-5 w-5" />
                           </div>
-                          <span className="text-xl font-bold text-white group-active:text-[#D4A017]">{link.label}</span>
+                          <span className="text-xl font-bold text-white group-active:text-[#c29a50]">{link.label}</span>
                         </Link>
                       </SheetClose>
                     ))}
@@ -204,7 +202,7 @@ export default function Header() {
                   <SheetClose asChild>
                     <Link 
                       href="/training" 
-                      className="flex items-center justify-between p-6 rounded-2xl bg-[#D4A017] text-slate-950 transition-transform active:scale-95"
+                      className="flex items-center justify-between p-6 rounded-2xl bg-[#c29a50] text-slate-950 transition-transform active:scale-95"
                     >
                       <span className="text-lg font-black uppercase tracking-tighter italic">Academy Overview</span>
                       <GraduationCap className="h-6 w-6" />
@@ -213,7 +211,7 @@ export default function Header() {
                   
                   <div className="mt-8 flex items-center gap-4">
                     <div className="h-10 w-10 bg-white/5 rounded-full flex items-center justify-center">
-                       <Phone className="h-4 w-4 text-[#D4A017]" />
+                       <Phone className="h-4 w-4 text-[#c29a50]" />
                     </div>
                     <div className="flex flex-col">
                        <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">24/7 Dispatch</span>

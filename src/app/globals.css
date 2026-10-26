@@ -4,19 +4,18 @@
 /* Animations used by shadcn (see step 5) */
 @import "tw-animate-css";
 
-/* Brand tokens (OK to tweak later) */
+/* Molale's public palette: deep navy, warm white and restrained brass. */
 :root {
-  /* OKLCH or HEX both fine; HEX shown for clarity */
-  /* #f4f4f5 */
-  --background: #f4f4f5;  
-  --foreground: #030000;
-
-  --primary:  #f0ac0f; /* Molale Orange */
-  --primary-foreground: #ffffff;
-
-  --accent:   #E7692D; /* Molale Yellow */
-  --muted:    #f6f6f6;
-  --border:   #e5e5e5;
+  --background: #fbfaf7;
+  --foreground: #17212b;
+  --primary: #b88a35;
+  --primary-foreground: #111820;
+  --accent: #d7c49c;
+  --muted: #f2f0eb;
+  --border: #e4e0d7;
+  --text-muted: #586471;
+  --font-body: var(--font-inter), "Segoe UI", Arial, sans-serif;
+  --font-heading: var(--font-manrope), "Segoe UI", Arial, sans-serif;
 }
 
 .dark {
@@ -39,18 +38,35 @@
 
 /* Base app styles */
 html, body, :root { height: 100%; }
+html { scroll-behavior: smooth; }
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  
-  font-family: var(--font-roboto), sans-serif;
+  font-family: var(--font-heading);
+  font-weight: 650;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
 }
 
-h1, h2{
-  text-transform: uppercase;
+h1 { letter-spacing: -0.045em; }
+
+::selection {
+  color: #17212b;
+  background: #e8d6ad;
+}
+
+:focus-visible {
+  outline: 3px solid #b88a35;
+  outline-offset: 3px;
 }
 
 @keyframes mobile-glow {

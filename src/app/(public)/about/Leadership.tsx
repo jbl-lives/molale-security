@@ -18,11 +18,11 @@ export default function Leadership() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-xl">
-            <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">
+            <span className="text-xs font-bold tracking-[0.4em] text-[#8f692b] uppercase">
               The Frontline
             </span>
             <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
-              Executive <span className="text-[#D4A017]">Leadership</span>
+              Executive <span className="text-[#c29a50]">Leadership</span>
             </h2>
           </div>
           <p className="max-w-xs text-slate-500 text-sm leading-relaxed">
@@ -57,10 +57,10 @@ export default function Leadership() {
                 
                 {/* Social Links on Hover */}
                 <div className="absolute bottom-6 left-6 flex gap-3 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <div className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#D4A017] transition-colors cursor-pointer">
+                  <div className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#c29a50] transition-colors cursor-pointer">
                     <Linkedin className="h-4 w-4" />
                   </div>
-                  <div className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#D4A017] transition-colors cursor-pointer">
+                  <div className="h-8 w-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#c29a50] transition-colors cursor-pointer">
                     <Mail className="h-4 w-4" />
                   </div>
                 </div>
@@ -70,8 +70,8 @@ export default function Leadership() {
               <div className="mt-6 text-center md:text-left">
                 <h3 className="text-xl font-bold text-slate-900 tracking-tight">{m.name}</h3>
                 <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
-                  <div className="h-px w-4 bg-[#D4A017]" />
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">{m.role}</p>
+                  <div className="h-px w-4 bg-[#c29a50]" />
+                  <p className="text-xs font-bold text-[#8f692b] uppercase tracking-widest">{m.role}</p>
                 </div>
               </div>
             </article>

@@ -47,11 +47,11 @@ export default function ServicesGrid() {
         
         {/* Section Title */}
         <div className="mb-16 md:mb-24">
-          <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">Division Catalog</span>
+          <span className="text-xs font-bold tracking-[0.4em] text-[#8f692b] uppercase">Division Catalog</span>
           <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
-            Specialized <span className="text-[#D4A017]">Protection Units</span>
+            Specialized <span className="text-[#c29a50]">Protection Units</span>
           </h2>
-          <div className="mt-6 h-0.5 w-16 bg-[#D4A017]" />
+          <div className="mt-6 h-0.5 w-16 bg-[#c29a50]" />
         </div>
 
         {/* Services List */}
@@ -82,7 +82,7 @@ export default function ServicesGrid() {
                       {/* Floating Badge */}
                       <div className="absolute top-6 left-6">
                          <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-xl border border-white/20">
-                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
+                            <div className="h-1.5 w-1.5 rounded-full bg-[#8f692b] animate-pulse" />
                             <span className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">Active Division</span>
                          </div>
                       </div>
@@ -93,7 +93,7 @@ export default function ServicesGrid() {
                   <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                     <div className="flex flex-col">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="h-12 w-12 shrink-0 bg-slate-900 text-[#D4A017] rounded-2xl flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12">
+                        <div className="h-12 w-12 shrink-0 bg-slate-900 text-[#c29a50] rounded-2xl flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12">
                           <Icon className="h-6 w-6" />
                         </div>
                         <h3 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">{s.title}</h3>
@@ -109,7 +109,7 @@ export default function ServicesGrid() {
                         <ul className="grid grid-cols-1 gap-3">
                           {bullets.map((b) => (
                             <li key={b} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                              <CheckCircle2 className="h-4 w-4 text-[#D4A017] shrink-0" />
+                              <CheckCircle2 className="h-4 w-4 text-[#c29a50] shrink-0" />
                               <span>{b}</span>
                             </li>
                           ))}
@@ -125,7 +125,7 @@ export default function ServicesGrid() {
                         
                         <Link
                           href={`/services/${s.slug}`}
-                          className="group/btn flex items-center gap-3 bg-slate-950 text-white px-6 py-3 rounded-xl font-bold text-xs transition-all hover:bg-blue-600 hover:shadow-xl active:scale-95"
+                          className="group/btn flex items-center gap-3 bg-slate-950 text-white px-6 py-3 rounded-xl font-bold text-xs transition-all hover:bg-[#8f692b] hover:shadow-xl active:scale-95"
                         >
                           EXPLORE UNIT
                           <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />

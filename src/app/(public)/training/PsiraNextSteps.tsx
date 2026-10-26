@@ -17,7 +17,7 @@ export default function PsiraNextSteps() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header Section */}
         <div className="mb-16">
-          <span className="text-xs font-bold tracking-[0.3em] text-blue-600 uppercase">
+          <span className="text-xs font-bold tracking-[0.3em] text-[#8f692b] uppercase">
             Certification Phase
           </span>
           <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
@@ -36,7 +36,7 @@ export default function PsiraNextSteps() {
             <div className="bg-white rounded-3xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 bg-blue-50 rounded-2xl flex items-center justify-center">
-                  <Clock className="h-6 w-6 text-blue-600" />
+                  <Clock className="h-6 w-6 text-[#8f692b]" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Timeline</h3>
               </div>
@@ -54,7 +54,7 @@ export default function PsiraNextSteps() {
                     "Result Capturing Speed"
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-sm text-slate-600">
-                      <CheckCircle2 className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[#a77c2e] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -63,8 +63,8 @@ export default function PsiraNextSteps() {
 
               <div className="mt-8 pt-6 border-t border-slate-100">
                 <div className="flex gap-3">
-                   <div className="h-8 w-8 bg-[#D4A017]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <ShieldCheck className="h-4 w-4 text-[#D4A017]" />
+                   <div className="h-8 w-8 bg-[#c29a50]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <ShieldCheck className="h-4 w-4 text-[#c29a50]" />
                    </div>
                    <p className="text-xs text-slate-500 leading-relaxed italic">
                     <strong>Molale Pro-Tip:</strong> We provide a pre-submission audit to ensure your application is 100% correct before you travel.
@@ -85,7 +85,7 @@ export default function PsiraNextSteps() {
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-10">
                   <div className="h-12 w-12 bg-white/10 rounded-2xl flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-[#D4A017]" />
+                    <FileText className="h-6 w-6 text-[#c29a50]" />
                   </div>
                   <h3 className="text-2xl font-bold">Required Documentation</h3>
                 </div>
@@ -93,23 +93,23 @@ export default function PsiraNextSteps() {
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Category 1 */}
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#D4A017] uppercase">Identity & Forms</h4>
+                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#c29a50] uppercase">Identity & Forms</h4>
                     <div className="space-y-3">
                       <div className="flex gap-3 items-start group">
-                        <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20 transition-colors">
-                          <BadgeCheck className="h-3 w-3 text-[#D4A017]" />
+                        <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#c29a50]/20 transition-colors">
+                          <BadgeCheck className="h-3 w-3 text-[#c29a50]" />
                         </div>
                         <p className="text-sm text-slate-300">Signed PSIRA Individual Form</p>
                       </div>
                       <div className="flex gap-3 items-start group">
-                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
-                          <IdCard className="h-3 w-3 text-[#D4A017]" />
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#c29a50]/20">
+                          <IdCard className="h-3 w-3 text-[#c29a50]" />
                         </div>
                         <p className="text-sm text-slate-300">Certified SA ID Copy</p>
                       </div>
                       <div className="flex gap-3 items-start group">
-                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
-                          <ImageIcon className="h-3 w-3 text-[#D4A017]" />
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#c29a50]/20">
+                          <ImageIcon className="h-3 w-3 text-[#c29a50]" />
                         </div>
                         <p className="text-sm text-slate-300">2x Passport Photos</p>
                       </div>
@@ -118,23 +118,23 @@ export default function PsiraNextSteps() {
 
                   {/* Category 2 */}
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#D4A017] uppercase">Verification</h4>
+                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#c29a50] uppercase">Verification</h4>
                     <div className="space-y-3">
                       <div className="flex gap-3 items-start group">
-                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
-                          <Home className="h-3 w-3 text-[#D4A017]" />
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#c29a50]/20">
+                          <Home className="h-3 w-3 text-[#c29a50]" />
                         </div>
                         <p className="text-sm text-slate-300">Proof of Residence (Utility/Lease)</p>
                       </div>
                       <div className="flex gap-3 items-start group">
-                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
-                          <GraduationCap className="h-3 w-3 text-[#D4A017]" />
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#c29a50]/20">
+                          <GraduationCap className="h-3 w-3 text-[#c29a50]" />
                         </div>
                         <p className="text-sm text-slate-300">Grade E/D/C Training Certificates</p>
                       </div>
                       <div className="flex gap-3 items-start group">
-                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#D4A017]/20">
-                          <Fingerprint className="h-3 w-3 text-[#D4A017]" />
+                         <div className="h-5 w-5 rounded-md bg-white/5 flex items-center justify-center mt-0.5 group-hover:bg-[#c29a50]/20">
+                          <Fingerprint className="h-3 w-3 text-[#c29a50]" />
                         </div>
                         <p className="text-sm text-slate-300">Captured Fingerprint Set</p>
                       </div>
@@ -146,8 +146,8 @@ export default function PsiraNextSteps() {
                 <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
                   <p className="text-xs text-slate-400">Regional Application Hubs:</p>
                   <div className="flex gap-6">
-                    <span className="text-sm font-semibold border-b border-[#D4A017] pb-1">Bloemfontein</span>
-                    <span className="text-sm font-semibold border-b border-[#D4A017] pb-1">Johannesburg</span>
+                    <span className="text-sm font-semibold border-b border-[#c29a50] pb-1">Bloemfontein</span>
+                    <span className="text-sm font-semibold border-b border-[#c29a50] pb-1">Johannesburg</span>
                   </div>
                 </div>
               </div>

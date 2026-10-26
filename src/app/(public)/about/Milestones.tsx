@@ -18,15 +18,15 @@ export default function Milestones() {
           {/* Left: Sticky Header Section (5 columns) */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 bg-[#D4A017] rounded-xl flex items-center justify-center shadow-lg">
+              <div className="h-10 w-10 bg-[#c29a50] rounded-xl flex items-center justify-center shadow-lg">
                 <History className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xs font-bold tracking-[0.3em] text-blue-600 uppercase">Our Evolution</span>
+              <span className="text-xs font-bold tracking-[0.3em] text-[#8f692b] uppercase">Our Evolution</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1]">
               The Journey of <br />
-              <span className="text-[#D4A017]">Tactical Growth.</span>
+              <span className="text-[#c29a50]">Tactical Growth.</span>
             </h2>
             
             <p className="mt-6 text-slate-500 leading-relaxed max-w-sm">
@@ -45,7 +45,7 @@ export default function Milestones() {
                />
                <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent" />
                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-[#D4A017]" />
+                  <Calendar className="h-4 w-4 text-[#c29a50]" />
                   <span className="text-white text-[10px] font-bold uppercase tracking-widest">Est. 2006</span>
                </div>
             </div>
@@ -57,14 +57,14 @@ export default function Milestones() {
               {milestones.map((m, index) => (
                 <div key={m.year} className="relative pl-10 group">
                   {/* The Timeline Dot */}
-                  <div className="absolute -left-[11px] top-0 h-5 w-5 rounded-full border-4 border-white bg-slate-200 group-hover:bg-[#D4A017] group-hover:scale-125 transition-all duration-300 shadow-sm" />
+                  <div className="absolute -left-[11px] top-0 h-5 w-5 rounded-full border-4 border-white bg-slate-200 group-hover:bg-[#c29a50] group-hover:scale-125 transition-all duration-300 shadow-sm" />
                   
                   {/* Year Label */}
-                  <div className="inline-block px-3 py-1 rounded-full bg-slate-900 text-[#D4A017] text-[10px] font-bold tracking-widest mb-4">
+                  <div className="inline-block px-3 py-1 rounded-full bg-slate-900 text-[#c29a50] text-[10px] font-bold tracking-widest mb-4">
                     {m.year}
                   </div>
 
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-[#8f692b] transition-colors">
                     {m.title}
                   </h3>
                   
@@ -80,7 +80,7 @@ export default function Milestones() {
 
             {/* End of Journey Note */}
             <div className="ml-4 md:ml-6 p-8 bg-slate-50 rounded-3xl border border-slate-100 flex items-start gap-4">
-               <CheckCircle2 className="h-6 w-6 text-[#D4A017] shrink-0" />
+               <CheckCircle2 className="h-6 w-6 text-[#c29a50] shrink-0" />
                <div>
                   <h4 className="text-sm font-bold text-slate-900 uppercase">And the journey continues...</h4>
                   <p className="text-xs text-slate-500 mt-1">We are constantly expanding our fleet and technology to serve the North West more effectively.</p>

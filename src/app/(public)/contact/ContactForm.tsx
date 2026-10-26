@@ -14,10 +14,10 @@ export default function ContactForm() {
   const inputStyles = `
     mt-2 w-full rounded-2xl bg-white/5 border border-white/10 text-white 
     placeholder-slate-500 px-5 py-4 outline-none transition-all
-    focus:border-[#D4A017]/50 focus:bg-white/[0.08] focus:ring-4 focus:ring-[#D4A017]/10
+    focus:border-[#c29a50]/50 focus:bg-white/[0.08] focus:ring-4 focus:ring-[#c29a50]/10
   `;
 
-  const labelStyles = "text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4A017] ml-1";
+  const labelStyles = "text-[10px] font-bold uppercase tracking-[0.2em] text-[#c29a50] ml-1";
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
@@ -69,7 +69,7 @@ export default function ContactForm() {
       <div className="flex justify-end pt-4">
         <button
           type="submit"
-          className="group relative inline-flex items-center gap-3 rounded-full bg-[#D4A017]
+          className="group relative inline-flex items-center gap-3 rounded-full bg-[#c29a50]
                     px-10 py-4 font-bold text-slate-950 transition-all 
                     hover:scale-105 hover:shadow-[0_0_30px_rgba(212,160,23,0.3)] 
                     active:scale-95 cursor-pointer overflow-hidden"

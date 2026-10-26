@@ -19,12 +19,12 @@ export default function ContactPage() {
           {/* LEFT SIDE: Info & Branding */}
           <div className="space-y-12">
             <div className="max-w-xl">
-              <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">
+              <span className="text-xs font-bold tracking-[0.4em] text-[#8f692b] uppercase">
                 24/7 Dispatch Center
               </span>
               <h1 className="text-5xl md:text-7xl mt-4 font-bold text-slate-900 tracking-tight leading-[0.9]">
                 Get in touch <br />
-                <span className="text-[#D4A017]">With Us Today.</span>
+                <span className="text-[#c29a50]">With Us Today.</span>
               </h1>
               <p className="mt-8 text-lg text-slate-500 leading-relaxed font-light">
                 Our control room is operational 24/7. Whether you require immediate 
@@ -42,11 +42,11 @@ export default function ContactPage() {
                 { icon: MapPin, label: "Regional HQ", val: "No 15 Third Avenue, Orkney", href: "#" },
               ].map((item) => (
                 <div key={item.label} className="group flex flex-col items-start">
-                  <div className="h-10 w-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-[#D4A017] group-hover:text-white transition-all duration-300">
+                  <div className="h-10 w-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-[#c29a50] group-hover:text-white transition-all duration-300">
                     <item.icon className="h-5 w-5" />
                   </div>
                   <p className="mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">{item.label}</p>
-                  <a href={item.href} className="mt-1 text-slate-900 font-bold hover:text-blue-600 transition-colors">
+                  <a href={item.href} className="mt-1 text-slate-900 font-bold hover:text-[#8f692b] transition-colors">
                     {item.val}
                   </a>
                 </div>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                 ))}
               </div>
               <div className="flex items-center gap-3 px-4 py-2 bg-slate-50 rounded-full border border-slate-100">
-                <ShieldCheck className="h-4 w-4 text-[#D4A017]" />
+                <ShieldCheck className="h-4 w-4 text-[#c29a50]" />
                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">PSIRA Accredited Force</span>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
           {/* RIGHT SIDE: The Form Card */}
           <div className="relative">
             {/* Design Accents */}
-            <div className="absolute -inset-4 bg-[#D4A017]/10 rounded-[3rem] blur-3xl -z-10" />
+            <div className="absolute -inset-4 bg-[#c29a50]/10 rounded-[3rem] blur-3xl -z-10" />
             
             <div className="relative rounded-[2.5rem] bg-slate-900 p-8 md:p-12 shadow-2xl border border-white/5 overflow-hidden">
               {/* Subtle mesh background inside the card */}

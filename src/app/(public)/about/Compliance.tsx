@@ -20,10 +20,10 @@ export default function Compliance() {
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-8">
             <div className="h-10 w-10 bg-slate-900 rounded-xl flex items-center justify-center">
-              <ShieldCheck className="h-5 w-5 text-[#D4A017]" />
+              <ShieldCheck className="h-5 w-5 text-[#c29a50]" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-              Compliance & <span className="text-[#D4A017]">Training</span>
+              Compliance & <span className="text-[#c29a50]">Training</span>
             </h2>
           </div>
 
@@ -31,9 +31,9 @@ export default function Compliance() {
   {certifications.map((c) => (
     <div
       key={c.label}
-      className="group p-8 bg-amber-50/80 rounded-3xl border border-[#D4A017]/30 shadow-sm transition-all duration-300 hover:bg-[#D4A017] hover:border-[#D4A017] hover:shadow-xl hover:shadow-[#D4A017]/20 hover:-translate-y-1"
+      className="group p-8 bg-amber-50/80 rounded-3xl border border-[#c29a50]/30 shadow-sm transition-all duration-300 hover:bg-[#c29a50] hover:border-[#c29a50] hover:shadow-xl hover:shadow-[#c29a50]/20 hover:-translate-y-1"
     >
-      <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#B88A12] mb-3 group-hover:text-slate-950 transition-colors">
+      <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#a77c2e] mb-3 group-hover:text-slate-950 transition-colors">
         {c.label}
       </div>
       <div className="text-slate-800 group-hover:text-slate-950 text-sm leading-relaxed font-medium transition-colors">
@@ -48,7 +48,7 @@ export default function Compliance() {
         <div className="relative pt-16 border-t border-slate-200">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-full mb-4">
-              <Award className="h-4 w-4 text-[#D4A017]" />
+              <Award className="h-4 w-4 text-[#c29a50]" />
               <span className="text-[10px] font-bold text-white uppercase tracking-widest">Official Accreditations</span>
             </div>
             <p className="text-slate-500 text-sm max-w-xl mx-auto">
@@ -60,7 +60,7 @@ export default function Compliance() {
             {accreditationLogos.map((logo) => (
               <div 
                 key={logo.alt}
-                className="bg-white rounded-2xl border border-slate-200 p-8 h-40 flex items-center justify-center transition-all duration-500 hover:border-[#D4A017]/50 hover:shadow-lg group"
+                className="bg-white rounded-2xl border border-slate-200 p-8 h-40 flex items-center justify-center transition-all duration-500 hover:border-[#c29a50]/50 hover:shadow-lg group"
               >
                 <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
                   <Image

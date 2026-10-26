@@ -8,9 +8,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-slate-950 border-t border-white/5 pt-20 pb-10">
+    <footer className="w-full bg-slate-950 border-t border-white/10 pt-16 md:pt-20 pb-8">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 mb-16">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 mb-12 md:mb-14">
           
           {/* Brand & Mission Column */}
           <div className="space-y-6">
@@ -24,12 +24,12 @@ export default function Footer() {
               />
               <span className="text-xl font-black text-white tracking-tighter uppercase">Molale</span>
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+            <p className="text-slate-300 text-sm leading-relaxed max-w-xs">
               Providing intelligence-led security architecture and tactical protection across the North West since 2006.
             </p>
             <div className="flex gap-4">
               {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <Link key={i} href="#" className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-slate-500 hover:bg-[#D4A017] hover:text-slate-950 transition-all">
+                  <Link key={i} href="#" className="h-9 w-9 rounded-full bg-white/5 flex items-center justify-center text-slate-300 hover:bg-[#c29a50] hover:text-slate-950 transition-colors">
                   <Icon className="h-4 w-4" />
                 </Link>
               ))}
@@ -47,7 +47,7 @@ export default function Footer() {
                 { label: "VIP Protection", href: "/services/vip-protection" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-slate-500 hover:text-[#D4A017] transition-colors">
+              <Link href={link.href} className="text-sm text-slate-300 hover:text-[#e0c58e] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -67,7 +67,7 @@ export default function Footer() {
                 { label: "Regional Coverage", href: "/services#coverage" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-slate-500 hover:text-[#D4A017] transition-colors">
+              <Link href={link.href} className="text-sm text-slate-300 hover:text-[#e0c58e] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -80,22 +80,22 @@ export default function Footer() {
             <h4 className="text-[10px] font-bold text-white uppercase tracking-[0.3em] mb-6">HQ Contact</h4>
             <div className="space-y-4">
               <a href="tel:+27184771412" className="flex items-center gap-3 group">
-                <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017] group-hover:text-slate-950 transition-all">
+                <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c29a50] group-hover:bg-[#c29a50] group-hover:text-slate-950 transition-all">
                   <Phone className="h-4 w-4" />
                 </div>
-                <span className="text-sm text-slate-500 group-hover:text-white transition-colors">+27 18 477 1412</span>
+                <span className="text-sm text-slate-300 group-hover:text-white transition-colors">+27 18 477 1412</span>
               </a>
               <a href="mailto:info@molalesecurity.com" className="flex items-center gap-3 group">
-                <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-[#D4A017] group-hover:bg-[#D4A017] group-hover:text-slate-950 transition-all">
+                <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c29a50] group-hover:bg-[#c29a50] group-hover:text-slate-950 transition-all">
                   <Mail className="h-4 w-4" />
                 </div>
-                <span className="text-sm text-slate-500 group-hover:text-white transition-colors">info@molalesecurity.com</span>
+                <span className="text-sm text-slate-300 group-hover:text-white transition-colors">info@molalesecurity.com</span>
               </a>
               <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-[#D4A017]">
+                <div className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c29a50]">
                   <MapPin className="h-4 w-4" />
                 </div>
-                <span className="text-sm text-slate-500 leading-tight">No 15 Third Avenue,<br />Vaal Reefs, Orkney</span>
+                <span className="text-sm text-slate-300 leading-relaxed">No 15 Third Avenue,<br />Vaal Reefs, Orkney</span>
               </div>
             </div>
           </div>
@@ -104,15 +104,15 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-6">
-            <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+            <p className="text-xs text-slate-400 font-medium">
               © {currentYear} Molale Security Group
             </p>
             <div className="h-4 w-px bg-slate-800 hidden md:block" />
             <nav aria-label="Legal" className="flex items-center gap-6">
-              <Link href="/privacy-policy" className="text-[10px] text-slate-600 font-bold uppercase tracking-widest hover:text-white transition-colors">
+              <Link href="/privacy-policy" className="text-xs text-slate-300 font-medium hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="text-[10px] text-slate-600 font-bold uppercase tracking-widest hover:text-white transition-colors">
+              <Link href="/terms-of-service" className="text-xs text-slate-300 font-medium hover:text-white transition-colors">
                 Terms of Service
               </Link>
             </nav>
@@ -120,7 +120,7 @@ export default function Footer() {
 
           {/* Compliance Badge */}
           <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-full border border-white/10">
-            <ShieldCheck className="h-4 w-4 text-[#D4A017]" />
+            <ShieldCheck className="h-4 w-4 text-[#c29a50]" />
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">PSIRA Accredited Force</span>
           </div>
         </div>

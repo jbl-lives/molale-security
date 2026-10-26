@@ -9,7 +9,7 @@ export default function ProvideAndCompliance() {
           {/* Section 1: What we provide */}
           <div>
             <div className="mb-10">
-              <span className="text-xs font-bold tracking-[0.2em] text-blue-600 uppercase">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#8f692b] uppercase">
                 Academy Benefits
               </span>
               <h2 className="text-3xl md:text-4xl mt-2 font-bold text-slate-900 tracking-tight">
@@ -26,7 +26,7 @@ export default function ProvideAndCompliance() {
               ].map(({ icon: Icon, title, text }) => (
                 <li key={title} className="flex items-start gap-5 group">
                   {/* Icon Container: Fixed width to prevent "mushing" */}
-                  <div className="flex-shrink-0 inline-grid h-12 w-12 place-items-center rounded-xl bg-slate-900 text-white group-hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-slate-200">
+                  <div className="flex-shrink-0 inline-grid h-12 w-12 place-items-center rounded-xl bg-slate-900 text-white group-hover:bg-[#8f692b] transition-colors duration-300 shadow-lg shadow-slate-200">
                     <Icon className="h-5 w-5" />
                   </div>
                   
@@ -47,7 +47,7 @@ export default function ProvideAndCompliance() {
             <div className="rounded-2xl p-8 md:p-10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 relative z-10">
               <div className="flex items-center mb-8 gap-4">
                 <div className="flex-shrink-0 h-10 w-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                  <ShieldCheck className="h-6 w-6 text-blue-600" />
+                  <ShieldCheck className="h-6 w-6 text-[#8f692b]" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 tracking-tight">PSIRA Compliance</h3>
               </div>
@@ -62,7 +62,7 @@ export default function ProvideAndCompliance() {
                   <p className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em]">Regional Offices</p>
                   
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <MapPin className="h-4 w-4 text-[#8f692b] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Johannesburg</p>
                       <p className="text-xs text-slate-500">Head & Regional Office</p>
@@ -70,7 +70,7 @@ export default function ProvideAndCompliance() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <MapPin className="h-4 w-4 text-[#8f692b] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Bloemfontein</p>
                       <p className="text-xs text-slate-500">Regional Support Office</p>

@@ -44,12 +44,30 @@ Set these variables in Vercel (Production, Preview, and Development as needed):
 - `GOOGLE_DRIVE_FOLDER_ID`: the destination folder ID (defaults to the folder configured for Molale).
 - `GOOGLE_DRIVE_CLIENT_ID`: OAuth client ID for a Google Cloud project with the Google Drive API enabled. The existing `GOOGLE_CLIENT_ID` name is also accepted.
 - `GOOGLE_DRIVE_CLIENT_SECRET`: matching OAuth client secret. The existing `GOOGLE_CLIENT_SECRET` name is also accepted.
-- `GOOGLE_DRIVE_REFRESH_TOKEN`: refresh token authorized by the Google account that owns or can write to the destination folder, with the `https://www.googleapis.com/auth/drive` scope.
+- `GOOGLE_DRIVE_REFRESH_TOKEN`: offline refresh token authorized for the destination folder with only the `https://www.googleapis.com/auth/drive.file` scope.
 
-`GOOGLE_REDIRECT_URI` is not used by this app. There is no application OAuth callback route: use `https://developers.google.com/oauthplayground` as the OAuth client's redirect URI when generating the refresh token. The authorized token must include the `drive` scope; the authorizing account needs write access to the destination folder. Google classifies `drive` as a restricted scope, while the narrower `drive.file` scope only covers files opened or shared with the app, such as through Google Picker. See [Google's Drive API scopes](https://developers.google.com/workspace/drive/api/guides/api-specific-auth).
+The OAuth app must be **In production**. Enable both the Google Drive API and Google Picker API. In the existing OAuth client's authorized redirect URIs, temporarily add `http://localhost:4173/oauth2callback`. The OAuth client must be a Web application client. No OAuth redirect route or Picker UI is added to the public website.
 
-To obtain the refresh token, open the [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/), enable **Use your own OAuth credentials**, and enter the OAuth client ID and secret. Request `https://www.googleapis.com/auth/drive`, authorize with the Google account that can upload to the destination folder, then exchange the authorization code and copy the refresh token into Vercel. The OAuth client must list the Playground URL above as an authorized redirect URI. The app exchanges the refresh token server-side for short-lived access tokens; it does not need an OAuth callback route or the `GOOGLE_REDIRECT_URI` variable.
+Use the local, temporary Google Picker utility to authorize the folder owner and issue a new refresh token. If this directory is not already linked to the correct Vercel project, link it first with `vercel link`. The setup process uses Vercel Production environment variables without writing them to `.env.local`:
 
-Keep the client secret and refresh token private. Do not commit them, use `NEXT_PUBLIC_` names, or paste them into chat. OAuth refresh tokens issued while an External consent screen is in Testing expire after seven days. For ongoing production use, move the consent screen to In production and complete any Google verification required for the restricted Drive scope; then issue and save a new refresh token. Google says apps that store or transmit restricted-scope data on their servers must undergo a security assessment. See [Google OAuth refresh token behavior](https://developers.google.com/identity/protocols/oauth2/) and [Google's Drive API file creation guide](https://developers.google.com/workspace/drive/api/guides/create-file).
+```powershell
+vercel env run -e production -- npm run google-drive:setup
+```
+
+The utility requires `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`, and `GOOGLE_DRIVE_FOLDER_ID`. It also accepts the legacy client variable names `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`. Sign in as the Google account that can write to the destination folder and select that folder in Google's hosted Picker. The utility checks that the selected folder ID matches `GOOGLE_DRIVE_FOLDER_ID`, verifies it is a Drive folder accessible to the grant, and requires the granted scope to be exactly `drive.file`. It writes the new refresh token to `.env.google-drive-refresh-token`, a local file matched by the repository's `.env*` ignore rule. It does not print the token or return it to browser code. If Google returns a broader or unexpected grant, setup stops without saving the token.
+
+After setup, add the Production secret by piping the ignored file to the CLI (the token itself stays out of shell history):
+
+```powershell
+Get-Content -Raw -LiteralPath '.env.google-drive-refresh-token' | vercel env add GOOGLE_DRIVE_REFRESH_TOKEN production --type secret
+```
+
+If `GOOGLE_DRIVE_REFRESH_TOKEN` already exists in Production, update it instead:
+
+```powershell
+Get-Content -Raw -LiteralPath '.env.google-drive-refresh-token' | vercel env update GOOGLE_DRIVE_REFRESH_TOKEN production --type secret
+```
+
+After confirming the Vercel CLI succeeded, remove the local token file with `Remove-Item -LiteralPath '.env.google-drive-refresh-token'`. Remove the temporary localhost redirect URI from the OAuth client once setup is complete, then redeploy so the updated Production environment is applied. Keep all OAuth values server-side; never use `NEXT_PUBLIC_` names or commit token files. Google describes `drive.file` as a non-sensitive, per-file scope for files created by the app or shared using Google Picker. See [Google's Drive API scopes](https://developers.google.com/workspace/drive/api/guides/api-specific-auth), [Google's hosted Picker flow](https://developers.google.com/workspace/drive/picker/guides/desktop-mobile-picker), and [Vercel environment variable CLI](https://vercel.com/docs/cli/env).
 
 The route has an origin check and a honeypot field. The browser prevents parallel submits, and each accepted upload receives a unique Drive filename, but the route does not have durable cross-device rate limiting or deduplication. Vercel Functions reject request bodies over 4.5 MB, so the CV limit stays at 4 MB to leave room for multipart fields and headers. See [Vercel Function limits](https://vercel.com/docs/functions/limitations).

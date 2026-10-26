@@ -15,13 +15,13 @@ export default function Stats() {
   return (
     <section className="w-full bg-slate-900 py-20 md:py-28 relative overflow-hidden">
       {/* Background Glows for Depth */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-600/10 blur-[120px] -z-10" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#D4A017]/10 blur-[120px] -z-10" />
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-[#8f692b]/10 blur-[120px] -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-[#c29a50]/10 blur-[120px] -z-10" />
 
       <div className="mx-auto max-w-7xl px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <span className="text-xs font-bold tracking-[0.4em] text-[#D4A017] uppercase">
+          <span className="text-xs font-bold tracking-[0.4em] text-[#c29a50] uppercase">
             Performance Metrics
           </span>
           <h2 className="text-4xl md:text-5xl mt-3 font-bold text-white tracking-tight">
@@ -38,18 +38,18 @@ export default function Stats() {
             return (
               <div 
                 key={s.label} 
-                className="group relative p-8 rounded-4xl bg-white/5 border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-[#D4A017]/30"
+                className="group relative p-8 rounded-4xl bg-white/5 border border-white/10 transition-all duration-500 hover:bg-white/10 hover:border-[#c29a50]/30"
               >
                 {/* Icon Wrapper */}
                 <div className="mb-6 flex items-center justify-between">
-                  <div className="h-10 w-10 rounded-xl bg-slate-800 flex items-center justify-center text-[#D4A017] group-hover:scale-110 transition-transform">
+                  <div className="h-10 w-10 rounded-xl bg-slate-800 flex items-center justify-center text-[#c29a50] group-hover:scale-110 transition-transform">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
                 </div>
 
                 {/* The Big Number */}
-                <div className="text-4xl font-black text-white tracking-tighter mb-2 group-hover:text-[#D4A017] transition-colors">
+                <div className="text-4xl font-black text-white tracking-tighter mb-2 group-hover:text-[#c29a50] transition-colors">
                   {s.value}
                 </div>
 
@@ -59,7 +59,7 @@ export default function Stats() {
                 </div>
 
                 {/* Animated Bottom Bar */}
-                <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-linear-to-r from-transparent via-[#D4A017]/0 to-transparent group-hover:via-[#D4A017]/40 transition-all duration-700" />
+                <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-linear-to-r from-transparent via-[#c29a50]/0 to-transparent group-hover:via-[#c29a50]/40 transition-all duration-700" />
               </div>
             );
           })}

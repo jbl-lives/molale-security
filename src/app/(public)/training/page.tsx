@@ -52,13 +52,13 @@ export default function TrainingHub() {
 
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-                <h2 className="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+                <h2 className="text-2xl font-bold mb-2 group-hover:text-[#d0ad6d] transition-colors">
                   {academy.title}
                 </h2>
                 <p className="text-gray-300 text-sm mb-4  transition-opacity duration-300">
                   {academy.description}
                 </p>
-                <div className="inline-block w-fit px-4 py-2 bg-blue-600 rounded text-sm font-semibold uppercase tracking-wider">
+                <div className="inline-block w-fit px-4 py-2 bg-[#8f692b] rounded text-sm font-semibold uppercase tracking-wider">
                   View Academy
                 </div>
               </div>

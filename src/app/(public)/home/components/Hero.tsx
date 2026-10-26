@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <>
       <section
-        className="relative isolate w-full min-h-[85svh] flex items-center overflow-hidden bg-slate-900"
+        className="relative isolate w-full min-h-[76svh] flex items-center overflow-hidden bg-slate-900"
         aria-label="Molale Security Hero"
       >
         {/* Cinematic Background Image */}
@@ -22,25 +22,25 @@ export default function Hero() {
         />
         
         {/* Sophisticated Dual Overlay */}
-        <div className="absolute inset-0 -z-10 bg-linear-to-r from-slate-950 via-slate-900/80 to-transparent md:from-slate-950 md:via-slate-900/60" />
-        <div className="absolute inset-0 -z-10 bg-linear-to-t from-slate-950/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-r from-slate-950/95 via-slate-900/75 to-slate-900/15" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-t from-slate-950/55 via-transparent to-transparent" />
 
         <div className="w-full max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl py-16 md:py-20">
             {/* Tagline */}
             <div className="flex items-center gap-2 mb-6">
-              <div className="h-px w-8 bg-[#D4A017]" />
-              <span className="text-[#D4A017] text-xs font-bold tracking-[0.4em] uppercase">
+              <div className="h-px w-8 bg-[#c29a50]" />
+              <span className="text-[#e0c58e] text-xs font-semibold tracking-[0.2em] uppercase">
                 Premier Security Solutions
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+            <h1 className="max-w-3xl text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.08] tracking-tight text-white">
               Total Protection. <br />
-              <span className="text-[#D4A017]">Zero Compromise.</span>
+              <span className="text-[#e0c58e]">Zero Compromise.</span>
             </h1>
 
-            <p className="mt-8 text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed font-light">
+            <p className="mt-6 text-base md:text-lg text-slate-200 max-w-xl leading-relaxed">
               From VIP protection to rapid armed response, we provide elite 
               intelligence-driven security across the North West.
             </p>
@@ -49,7 +49,7 @@ export default function Hero() {
               {/* Primary Action: Quote */}
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D4A017] text-slate-950 font-bold rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-[#D4A017]/20"
+                className="group relative inline-flex min-h-12 items-center justify-center gap-3 px-6 py-3 bg-[#c29a50] text-slate-950 font-semibold rounded-lg overflow-hidden transition-colors hover:bg-[#d0ad6d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <FileText className="h-5 w-5" />
                 <span>REQUEST A QUOTE</span>
@@ -58,7 +58,7 @@ export default function Hero() {
               {/* Secondary Action: WhatsApp */}
               <Button
                 asChild
-                className="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-7 rounded-full text-white hover:bg-white/20 transition-all flex items-center gap-3"
+                className="bg-white/10 backdrop-blur-md border border-white/25 px-6 py-6 rounded-lg text-white hover:bg-white/20 transition-colors flex items-center gap-3"
               >
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-green-400">
@@ -73,20 +73,20 @@ export default function Hero() {
       </section>
 
       {/* Trust Band: Minimalist Corporate Look */}
-      <div className="w-full bg-slate-950 py-6 border-y border-white/5">
+      <div className="w-full bg-slate-950 py-5 border-y border-white/10">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-white/10 text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 md:divide-x md:divide-white/10 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-4 px-8">
-              <Shield className="h-5 w-5 text-[#D4A017]" />
-              <span className="text-white/70 text-sm font-medium tracking-wide uppercase">PSIRA Compliant</span>
+              <Shield className="h-5 w-5 text-[#c29a50]" />
+              <span className="text-white/80 text-sm font-medium">PSIRA compliant</span>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-4 px-8">
-              <Zap className="h-5 w-5 text-[#D4A017]" />
-              <span className="text-white/70 text-sm font-medium tracking-wide uppercase">24/7 Rapid Response</span>
+              <Zap className="h-5 w-5 text-[#c29a50]" />
+              <span className="text-white/80 text-sm font-medium">24/7 rapid response</span>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-4 px-8">
-              <CheckCircle className="h-5 w-5 text-[#D4A017]" />
-              <span className="text-white/70 text-sm font-medium tracking-wide uppercase">Vetted Specialists</span>
+              <CheckCircle className="h-5 w-5 text-[#c29a50]" />
+              <span className="text-white/80 text-sm font-medium">Vetted specialists</span>
             </div>
           </div>
         </div>

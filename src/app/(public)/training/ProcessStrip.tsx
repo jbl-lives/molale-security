@@ -9,7 +9,7 @@ export default function ProcessStrip() {
   ];
 
   return (
-    <section className="bg-[#D4A017] py-20 md:py-28 relative overflow-hidden">
+    <section className="bg-[#c29a50] py-20 md:py-28 relative overflow-hidden">
       {/* Subtle Pattern Overlay for texture */}
       <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
@@ -33,24 +33,24 @@ export default function ProcessStrip() {
       border border-slate-800 rounded-3xl p-8 
       shadow-xl shadow-slate-950/20
       transition-all duration-500 
-      hover:bg-slate-950 hover:border-[#D4A017]/40 hover:shadow-2xl hover:-translate-y-2"
+      hover:bg-slate-950 hover:border-[#c29a50]/40 hover:shadow-2xl hover:-translate-y-2"
     >
       {/* Step Number Badge */}
       <div className="absolute top-6 right-8 text-4xl font-black 
           text-white/10 
-          group-hover:text-[#D4A017]/20 transition-colors">
+          group-hover:text-[#c29a50]/20 transition-colors">
         0{i + 1}
       </div>
 
       {/* Icon Container */}
-      <div className="inline-grid h-14 w-14 place-items-center rounded-2xl bg-slate-800 text-[#D4A017] border border-slate-700 group-hover:bg-[#D4A017] group-hover:text-slate-950 transition-all duration-300 shadow-xl">
+      <div className="inline-grid h-14 w-14 place-items-center rounded-2xl bg-slate-800 text-[#c29a50] border border-slate-700 group-hover:bg-[#c29a50] group-hover:text-slate-950 transition-all duration-300 shadow-xl">
         <Icon className="h-7 w-7" />
       </div>
 
       <div className="mt-8">
         <h3 className="text-xl font-bold 
                       text-white 
-                      group-hover:text-[#D4A017] transition-colors tracking-tight">
+                      group-hover:text-[#c29a50] transition-colors tracking-tight">
           {title}
         </h3>
         <p className="mt-3 text-sm leading-relaxed transition-colors

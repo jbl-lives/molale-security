@@ -36,11 +36,11 @@ export default function IndustriesServed() {
         {/* Header Area */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-xl">
-            <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">
+            <span className="text-xs font-bold tracking-[0.4em] text-[#8f692b] uppercase">
               Sector Expertise
             </span>
             <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
-              Industries <span className="text-[#D4A017]">We Protect</span>
+              Industries <span className="text-[#c29a50]">We Protect</span>
             </h2>
           </div>
           <p className="max-w-xs text-slate-500 text-sm leading-relaxed">
@@ -72,7 +72,7 @@ export default function IndustriesServed() {
                   
                   {/* Icon & Title Row */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="h-12 w-12 rounded-2xl bg-[#D4A017] text-slate-950 flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12">
+                    <div className="h-12 w-12 rounded-2xl bg-[#c29a50] text-slate-950 flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12">
                       <Icon className="h-6 w-6" />
                     </div>
                     <div className="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -86,7 +86,7 @@ export default function IndustriesServed() {
                   </p>
 
                   {/* Decorative Bottom Bar */}
-                  <div className="mt-6 h-0.5 w-0 bg-[#D4A017] transition-all duration-700 group-hover:w-full" />
+                  <div className="mt-6 h-0.5 w-0 bg-[#c29a50] transition-all duration-700 group-hover:w-full" />
                 </div>
               </div>
             </article>

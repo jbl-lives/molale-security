@@ -17,11 +17,11 @@ export default function ClientTrust() {
           
           {/* Left Side: Authority Text */}
           <div>
-            <span className="text-xs font-bold tracking-[0.3em] text-blue-600 uppercase">
+            <span className="text-xs font-bold tracking-[0.3em] text-[#8f692b] uppercase">
               Proven Reliability
             </span>
             <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight leading-[1.1]">
-              Securing the <span className="text-[#D4A017]">North West</span> Since Inception.
+              Securing the <span className="text-[#c29a50]">North West</span> Since Inception.
             </h2>
             <p className="mt-6 text-slate-600 leading-relaxed max-w-md">
               While we value client confidentiality, our track record speaks for itself. 
@@ -49,7 +49,7 @@ export default function ClientTrust() {
                 key={index} 
                 className="p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:bg-slate-900 hover:text-white group"
               >
-                <item.icon className="h-8 w-8 text-[#D4A017] mb-4 group-hover:scale-110 transition-transform" />
+                <item.icon className="h-8 w-8 text-[#c29a50] mb-4 group-hover:scale-110 transition-transform" />
                 <h4 className="font-bold text-lg mb-2">{item.label}</h4>
                 <p className="text-sm text-slate-500 group-hover:text-slate-300 leading-relaxed">
                   {item.desc}

@@ -37,16 +37,16 @@ export default function ServicesTrust() {
           {/* LEFT: Our Commitments (The Promise) */}
           <div className="space-y-12">
             <div>
-              <span className="text-xs font-bold tracking-[0.4em] text-blue-600 uppercase">Reliability</span>
+              <span className="text-xs font-bold tracking-[0.4em] text-[#8f692b] uppercase">Reliability</span>
               <h2 className="text-4xl md:text-5xl mt-3 font-bold text-slate-900 tracking-tight">
-                Our <span className="text-[#D4A017]">Commitments</span>
+                Our <span className="text-[#c29a50]">Commitments</span>
               </h2>
             </div>
 
             <div className="space-y-10">
               {guarantees.map(({ icon: Icon, title, desc }) => (
                 <article key={title} className="group flex gap-6">
-                  <div className="flex-shrink-0 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-[#D4A017] shadow-lg transition-transform group-hover:scale-110">
+                  <div className="flex-shrink-0 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-[#c29a50] shadow-lg transition-transform group-hover:scale-110">
                     <Icon className="h-7 w-7" />
                   </div>
                   <div>
@@ -65,7 +65,7 @@ export default function ServicesTrust() {
 
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-10">
-                <div className="h-1 w-12 bg-[#D4A017] rounded-full" />
+                <div className="h-1 w-12 bg-[#c29a50] rounded-full" />
                 <h2 className="text-2xl font-bold text-white tracking-tight">Operational FAQ</h2>
               </div>
 
@@ -79,17 +79,17 @@ export default function ServicesTrust() {
                     <AccordionTrigger
                       className="group flex items-center justify-between px-6 py-5 text-left hover:no-underline"
                     >
-                      <span className="text-sm md:text-base font-semibold text-slate-200 group-data-[state=open]:text-[#D4A017] transition-colors pr-4">
+                      <span className="text-sm md:text-base font-semibold text-slate-200 group-data-[state=open]:text-[#c29a50] transition-colors pr-4">
                         {item.q}
                       </span>
-                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all group-data-[state=open]:bg-[#D4A017] group-data-[state=open]:rotate-180">
+                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white transition-all group-data-[state=open]:bg-[#c29a50] group-data-[state=open]:rotate-180">
                         <ChevronDown className="h-4 w-4" />
                       </div>
                     </AccordionTrigger>
 
                     <AccordionContent className="px-6 pb-6 pt-2">
                       <div className="flex gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-[#D4A017] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-5 w-5 text-[#c29a50] flex-shrink-0 mt-0.5" />
                         <p className="text-sm text-slate-400 leading-relaxed font-medium">
                           {item.a}
                         </p>
