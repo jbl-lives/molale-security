@@ -37,17 +37,13 @@ export default function EditCourseForm({ params }: { params: Promise<{ slug: str
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const token = process.env.NEXT_PUBLIC_ADMIN_TOKEN;
-
   // Load course when slug is ready
   useEffect(() => {
     if (!slug) return;
 
     async function load() {
       try {
-        const res = await fetch(`/api/admin/courses?slug=${slug}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await fetch(`/api/admin/courses?slug=${slug}`);
         if (!res.ok) throw new Error("Failed to load course");
         const data = await res.json();
         setCourse(data);
@@ -67,7 +63,7 @@ export default function EditCourseForm({ params }: { params: Promise<{ slug: str
       }
     }
     load();
-  }, [slug, token]);
+  }, [slug]);
 
   // Submit
   async function onSubmit(e: React.FormEvent) {
@@ -79,10 +75,7 @@ export default function EditCourseForm({ params }: { params: Promise<{ slug: str
       setSaving(true);
       const res = await fetch("/api/admin/courses", {
         method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id: course.id,
           title: form.title.trim(),

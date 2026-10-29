@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { slugify } from "@/lib/slug";
+import { hasAdminSession } from "@/lib/admin-session";
 
 type Payload = {
   id?: string;
@@ -19,13 +20,8 @@ function unauthorized() {
   return new NextResponse("Unauthorized", { status: 401 });
 }
 
-function getAuth(req: Request) {
-  return req.headers.get("authorization")?.replace("Bearer ", "");
-}
-
 export async function GET(req: Request) {
-  const auth = getAuth(req);
-  if (auth !== process.env.ADMIN_TOKEN) return unauthorized();
+  if (!(await hasAdminSession(req))) return unauthorized();
 
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
@@ -50,8 +46,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  const auth = getAuth(req);
-  if (auth !== process.env.ADMIN_TOKEN) return unauthorized();
+  if (!(await hasAdminSession(req))) return unauthorized();
 
   const body = (await req.json()) as Partial<Payload>;
   if (
@@ -93,8 +88,7 @@ export async function POST(req: Request) {
 }
 
 export async function PATCH(req: Request) {
-  const auth = getAuth(req);
-  if (auth !== process.env.ADMIN_TOKEN) return unauthorized();
+  if (!(await hasAdminSession(req))) return unauthorized();
 
   const body = (await req.json()) as Partial<Payload>;
   if (
@@ -139,8 +133,7 @@ export async function PATCH(req: Request) {
 }
 
 export async function DELETE(req: Request) {
-  const auth = req.headers.get("authorization")?.replace("Bearer ", "");
-  if (auth !== process.env.ADMIN_TOKEN) return new NextResponse("Unauthorized", { status: 401 });
+  if (!(await hasAdminSession(req))) return unauthorized();
 
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");

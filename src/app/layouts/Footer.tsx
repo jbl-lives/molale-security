@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,15 +25,8 @@ export default function Footer() {
               <span className="text-xl font-black text-white tracking-tighter uppercase">Molale</span>
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed max-w-xs">
-              Providing intelligence-led security architecture and tactical protection across the North West since 2006.
+              Providing intelligence-led security and tactical protection across the North West since 2016.
             </p>
-            <div className="flex gap-4">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                  <Link key={i} href="#" className="h-9 w-9 rounded-full bg-white/5 flex items-center justify-center text-slate-300 hover:bg-[#c29a50] hover:text-slate-950 transition-colors">
-                  <Icon className="h-4 w-4" />
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* Operational Units (Services) */}

@@ -25,7 +25,7 @@ export default function AboutHero() {
           <p className="max-w-md text-slate-600 text-base leading-relaxed border-l-2 border-[#b88a35] pl-6 py-2">
             Founded on the principles of integrity and tactical precision, we have 
             grown into the North West's premier security force, protecting 
-            industrial assets and private interests since 2006.
+            industrial assets and private interests since 2016.
           </p>
         </div>
 
@@ -37,8 +37,8 @@ export default function AboutHero() {
             <div className="flex-1 bg-slate-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden group">
                <Award className="absolute -right-4 -bottom-4 h-24 w-24 text-white/5 group-hover:scale-110 transition-transform" />
                <p className="text-[#c29a50] text-[10px] font-black uppercase tracking-[0.2em] mb-2">Established</p>
-               <h2 className="text-5xl font-bold mb-1">2006</h2>
-               <p className="text-slate-400 text-xs">Over 18 years of operational excellence in high-risk environments.</p>
+               <h2 className="text-5xl font-bold mb-1">2016</h2>
+               <p className="text-slate-400 text-xs">A decade of operational experience in high-risk environments.</p>
             </div>
 
             <div className="flex-1 bg-white border border-slate-100 rounded-3xl p-8 shadow-sm relative overflow-hidden group">

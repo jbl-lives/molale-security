@@ -8,7 +8,7 @@ import PrimaryCta from "./home/components/sections/PrimaryCta";
 
 export const metadata = {
   title: "Molale Security | Professional Tactical Protection",
-  description: "North West's premier security force. Specialist guarding, 24/7 armed response, and K-9 tactical units since 2006.",
+  description: "Security services across the North West, including professional guarding, armed response, and K-9 services.",
   alternates: { canonical: "/" },
 };
 

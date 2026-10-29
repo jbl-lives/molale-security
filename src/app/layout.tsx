@@ -8,6 +8,7 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", displa
 
 
 export const metadata = {
+  metadataBase: new URL("https://www.molalesecurity.co.za"),
   title: {
     default: "Molale Security Group",
     template: "%s | Molale Security"

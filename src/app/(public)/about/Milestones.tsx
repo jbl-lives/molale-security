@@ -30,7 +30,7 @@ export default function Milestones() {
             </h2>
             
             <p className="mt-6 text-slate-500 leading-relaxed max-w-sm">
-              Since 2006, Molale Security has evolved from a local guarding service into a 
+              Since 2016, Molale Security has evolved from a local guarding service into a
               multi-disciplinary security powerhouse. Each year marks a new standard in 
               protection excellence.
             </p>
@@ -46,7 +46,7 @@ export default function Milestones() {
                <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent" />
                <div className="absolute bottom-4 left-4 flex items-center gap-2">
                   <Calendar className="h-4 w-4 text-[#c29a50]" />
-                  <span className="text-white text-[10px] font-bold uppercase tracking-widest">Est. 2006</span>
+                  <span className="text-white text-[10px] font-bold uppercase tracking-widest">Est. 2016</span>
                </div>
             </div>
           </div>

@@ -22,9 +22,7 @@ export default function CoursesList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/admin/courses", {
-      headers: { Authorization: `Bearer ${process.env.ADMIN_TOKEN}` },
-    })
+    fetch("/api/admin/courses")
       .then(res => res.json())
       .then(data => {
         setCourses(data);
@@ -37,7 +35,6 @@ export default function CoursesList() {
     if (!confirm("Delete this course?")) return;
     await fetch(`/api/admin/courses?id=${id}`, {
       method: "DELETE",
-      headers: { Authorization: `Bearer ${process.env.ADMIN_TOKEN}` },
     });
     setCourses(courses.filter(c => c.id !== id));
   }

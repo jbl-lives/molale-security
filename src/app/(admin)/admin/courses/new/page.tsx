@@ -20,8 +20,6 @@ export default function NewCourseForm() {
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-  const token = process.env.NEXT_PUBLIC_ADMIN_TOKEN;
-
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
@@ -45,10 +43,7 @@ export default function NewCourseForm() {
       setSaving(true);
       const res = await fetch("/api/admin/courses", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // ← SEND THE TOKEN
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 

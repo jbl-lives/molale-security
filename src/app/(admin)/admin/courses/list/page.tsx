@@ -26,8 +26,6 @@ export default function CoursesList() {
   const [error, setError] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
 
-  const token = process.env.NEXT_PUBLIC_ADMIN_TOKEN;
-
   // Show toast from URL
   useEffect(() => {
     const created = searchParams.get("created");
@@ -40,9 +38,7 @@ export default function CoursesList() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/admin/courses", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await fetch("/api/admin/courses");
         if (!res.ok) throw new Error(await res.text());
         const data = await res.json();
         setCourses(data);
@@ -53,7 +49,7 @@ export default function CoursesList() {
       }
     }
     load();
-  }, [token]);
+  }, []);
 
   // Delete
   async function deleteCourse(id: string) {
@@ -61,7 +57,6 @@ export default function CoursesList() {
     try {
       const res = await fetch(`/api/admin/courses?id=${id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Delete failed");
       setCourses(courses.filter((c) => c.id !== id));
